@@ -15,7 +15,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-inner mb-25">
-                                        <x-label for="email" value="{{ __('Email') }}" />
+                                        <label for="email">Email*</label>
 
                                         <div class="input-area">
                                             <img src="{{ asset('frontend') }}/images/icon/email-2.svg" alt />
@@ -26,7 +26,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-inner">
-                                        <x-label for="password" value="{{ __('Password') }}" />
+                                        <label for="email">Password*</label>
                                         <x-input id="password" type="password" name="password" required
                                             autocomplete="current-password" />
                                         <i class="bi bi-eye-slash" id="togglePassword"></i>
