@@ -1,4 +1,37 @@
-<x-guest-layout>
+@extends('frontend.layouts.master')
+@section('content')
+    <div class="login-area pt-120 mb-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-wrapper">
+                        <div class="form-title">
+                            <h3>Log In Here!</h3>
+                            <span></span>
+                        </div>
+                        <form method="POST" action="{{ route('password.email') }}">
+                            @csrf
+
+                            <div class="form-inner mb-25">
+                                <x-label for="email" value="{{ __('Email') }}" />
+                                <x-input id="email" class="block mt-1 w-full" type="email" name="email"
+                                    :value="old('email')" required autofocus autocomplete="username" />
+                            </div>
+
+                            <div class="flex items-center justify-end mt-4">
+                                <x-button class="primry-btn-2">
+                                    {{ __('Email Password Reset Link') }}
+                                </x-button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
+{{-- <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
@@ -31,4 +64,4 @@
             </div>
         </form>
     </x-authentication-card>
-</x-guest-layout>
+</x-guest-layout> --}}
