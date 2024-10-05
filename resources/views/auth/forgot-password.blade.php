@@ -6,7 +6,7 @@
                 <div class="col-lg-12">
                     <div class="form-wrapper">
                         <div class="form-title">
-                            <h3>Log In Here!</h3>
+                            <h6>Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.</h6>
                             <span></span>
                         </div>
                         <form method="POST" action="{{ route('password.email') }}">

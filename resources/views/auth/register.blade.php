@@ -53,16 +53,16 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            {{-- <div class="col-md-6">
+                                            <div class="col-md-6">
                                                 <div class="form-inner mb-25">
                                                     <label for="username">User Name*</label>
                                                     <div class="input-area">
                                                         <img src="{{ asset('frontend') }}/images/icon/user-2.svg" alt />
-                                                        <input type="text" id="username" name="username"
-                                                            placeholder="robertjonson" />
+                                                        <input type="text" id="username" name=""
+                                                            placeholder="" />
                                                     </div>
                                                 </div>
-                                            </div> --}}
+                                            </div>
                                             <div class="col-md-6">
                                                 <div class="form-inner mb-25">
                                                     <label for="email">Email*</label>
