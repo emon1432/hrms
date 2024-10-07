@@ -81,7 +81,7 @@
         </div>
         <div class="footer-btm">
             <div class="footer-logo">
-                <img src="{{ asset('frontend') }}/images/footer-logo.svg" alt>
+                <img src="{{ asset('frontend') }}/images/hrms-logo.png" alt width="150">
             </div>
             <div class="row align-items-center">
                 <div class="col-lg-6 d-flex justify-content-lg-start justify-content-center">
@@ -110,13 +110,13 @@
             <div class="row border-top align-items-center">
                 <div class="col-lg-6 d-flex  justify-content-lg-start justify-content-center">
                     <div class="copyright-area">
-                        <p>©Copyright 2023 <a href="#">JOBES</a> | Design By <a
-                                href="https://www.egenslab.com/">Egenslab</a></p>
+                        <p>©Copyright 2024 <a href="#">HRMS</a> | Developed By <a
+                                href="mailto:teamjonymartin@gmail.com">TeamJonyMartin</a></p>
                     </div>
                 </div>
                 <div class="col-lg-6 d-flex justify-content-lg-end justify-content-center">
                     <div class="social-area">
-                        <h6>Follow JOBES:</h6>
+                        <h6>Follow HRMS:</h6>
                         <ul>
                             <li><a href="https://www.facebook.com/"><i class="bx bxl-facebook"></i></a></li>
                             <li><a href="https://twitter.com/"><i class="bx bxl-twitter"></i></a></li>

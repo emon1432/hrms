@@ -1,6 +1,6 @@
 <header class="header-area style-1">
     <div class="header-main-logo d-lg-block d-none">
-        <a href="{{ route('home.index') }}"><img alt="image" src="{{ asset('frontend') }}/images/header1-logo.svg"></a>
+        <a href="{{ route('home.index') }}"><img alt="image" src="{{ asset('frontend') }}/images/hrms-logo.png" width="180"></a>
     </div>
     <div class="menu-topbar-area">
         <div class="top-bar">
@@ -30,13 +30,13 @@
         <div class="menu-area">
             <div class="header-logo">
                 <a href="{{ route('home.index') }}"><img alt="image" class="img-fluid"
-                        src="{{ asset('frontend') }}/images/header1-logo.svg"></a>
+                        src="{{ asset('frontend') }}/images/hrms-logo.png" width="120"></a>
             </div>
             <div class="main-menu">
                 <div class="mobile-logo-area d-lg-none d-flex justify-content-between align-items-center">
                     <div class="mobile-logo-wrap">
                         <a href="{{ route('home.index') }}"><img alt="image"
-                                src="{{ asset('frontend') }}/images/header1-logo.svg"></a>
+                                src="{{ asset('frontend') }}/images/hrms-logo.png" width="120"></a>
                     </div>
                     <div class="menu-close-btn">
                         <i class="bi bi-x-lg"></i>
