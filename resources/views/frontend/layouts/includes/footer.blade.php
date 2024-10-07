@@ -8,7 +8,8 @@
                     </div>
                     <div class="menu-container">
                         <ul>
-                            <li><a href="contact.html">Contact Us <i class="bx bx-up-arrow-alt"></i></a></li>
+                            <li><a href="{{ route('contact.index') }}">Contact Us <i class="bx bx-up-arrow-alt"></i></a>
+                            </li>
                             <li><a href="#">Terms & Condition <i class="bx bx-up-arrow-alt"></i></a></li>
                             <li><a href="#">Privacy & Policy <i class="bx bx-up-arrow-alt"></i></a></li>
                             <li><a href="#">Candidate Listing <i class="bx bx-up-arrow-alt"></i></a></li>
@@ -26,10 +27,11 @@
                         <ul>
                             <li><a href="edit-profile-2.html">Create Resume <i class="bx bx-up-arrow-alt"></i></a>
                             </li>
-                            <li><a href="category.html">Browse Categories <i class="bx bx-up-arrow-alt"></i></a>
+                            <li><a href="{{ route('categories.index') }}">Browse Categories <i
+                                        class="bx bx-up-arrow-alt"></i></a>
                             </li>
                             <li><a href="bookmark.html">Save Jobs List <i class="bx bx-up-arrow-alt"></i></a></li>
-                            <li><a href="job-listing1.html">Browse Jobs <i class="bx bx-up-arrow-alt"></i></a>
+                            <li><a href="{{ route('jobs.index') }}">Browse Jobs <i class="bx bx-up-arrow-alt"></i></a>
                             </li>
                             <li><a href="dashboard.html">Candidate Dashboard <i class="bx bx-up-arrow-alt"></i></a>
                             </li>
@@ -49,7 +51,7 @@
                             <li><a href="#">Browse Candidates <i class="bx bx-up-arrow-alt"></i></a></li>
                             <li><a href="pricing-plan.html">Job Packages <i class="bx bx-up-arrow-alt"></i></a>
                             </li>
-                            <li><a href="job-listing1.html">Jobs Featured <i class="bx bx-up-arrow-alt"></i></a>
+                            <li><a href="{{ route('jobs.index') }}">Jobs Featured <i class="bx bx-up-arrow-alt"></i></a>
                             </li>
                             <li><a href="company-dashboard.html">Employer Dashboard <i
                                         class="bx bx-up-arrow-alt"></i></a></li>

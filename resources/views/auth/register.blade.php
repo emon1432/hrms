@@ -265,7 +265,7 @@
                                             </div>
                                             <h6>
                                                 Already have an account?
-                                                <a href="login.html"> Login</a> Here
+                                                <a href="{{ route('login') }}"> Login</a> Here
                                             </h6>
                                             <div class="login-difarent-way">
                                                 <div class="row g-4">
