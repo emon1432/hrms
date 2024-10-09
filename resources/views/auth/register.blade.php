@@ -34,32 +34,32 @@
                                             <div class="col-md-6">
                                                 <div class="form-inner mb-25">
 
-                                                    <label for="firstname1">First Name*</label>
+                                                    <label for="first_name">First Name*</label>
 
                                                     <div class="input-area">
                                                         <img src="{{ asset('frontend') }}/images/icon/user-2.svg" alt />
-                                                        <x-input id="first_name" type="text" name="name"
+                                                        <x-input id="first_name" type="text" name="first_name"
+                                                            :value="old('first_name')" required autofocus autocomplete="name" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-inner mb-25">
+                                                    <label for="last_name">Last Name*</label>
+                                                    <div class="input-area">
+                                                        <img src="{{ asset('frontend') }}/images/icon/user-2.svg" alt />
+                                                        <x-input id="last_name" type="text" name="last_name"
                                                             :value="old('name')" required autofocus autocomplete="name" />
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-inner mb-25">
-                                                    <label for="lastname1">Last Name*</label>
+                                                    <label for="user_name">User Name*</label>
                                                     <div class="input-area">
                                                         <img src="{{ asset('frontend') }}/images/icon/user-2.svg" alt />
-                                                        <x-input id="last_name" type="text" name="name"
-                                                            :value="old('name')" required autofocus autocomplete="name" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-inner mb-25">
-                                                    <label for="username">User Name*</label>
-                                                    <div class="input-area">
-                                                        <img src="{{ asset('frontend') }}/images/icon/user-2.svg" alt />
-                                                        <input type="text" id="username" name=""
-                                                            placeholder="" />
+                                                        <x-input id="user_name" type="text" name="user_name"
+                                                            :value="old('user_name')" required autofocus autocomplete="name" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -263,6 +263,7 @@
                                                     </button>
                                                 </div>
                                             </div>
+                                            
                                             <h6>
                                                 Already have an account?
                                                 <a href="{{ route('login') }}"> Login</a> Here
