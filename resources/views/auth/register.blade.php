@@ -17,11 +17,11 @@
                                         aria-selected="true">
                                         Candidate
                                     </button>
-                                    {{-- <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
                                         data-bs-target="#nav-profile" type="button" role="tab"
                                         aria-controls="nav-profile" aria-selected="false">
                                         Company
-                                    </button> --}}
+                                    </button>
                                 </div>
                             </nav>
                             <div class="tab-content" id="nav-tabContent">
@@ -159,7 +159,7 @@
                                         </div>
                                     </form>
                                 </div>
-                                {{-- <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                <div class="tab-pane fade" id="nav-profile" role="tabpanel"
                                     aria-labelledby="nav-profile-tab">
                                     <form>
                                         <div class="row">
@@ -285,7 +285,7 @@
                                             </div>
                                         </div>
                                     </form>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
                     </div>
