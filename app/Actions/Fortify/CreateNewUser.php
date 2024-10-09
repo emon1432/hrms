@@ -41,6 +41,25 @@ class CreateNewUser implements CreatesNewUsers
             'password' => Hash::make($input['password']),
         ]);
 
+        //store data in respective tables
+        if ($input['role'] == 'candidate') {
+            $user->candidate()->create([
+                'first_name' => $input['first_name'],
+                'last_name' => $input['last_name'],
+                'email' => $input['email'],
+                'phone' => $input['phone'],
+            ]);
+        } else if ($input['role'] == 'organization') {
+            $user->organization()->create([
+                'name' => $input['organization_name'],
+                'slug' => $input['organization_name'],
+                'type' => $input['organization_type'],
+                'email' => $input['email'],
+                'phone' => $input['phone'],
+            ]);
+        }
+
+
         return $user;
     }
 }

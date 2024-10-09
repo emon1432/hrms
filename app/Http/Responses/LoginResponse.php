@@ -11,8 +11,8 @@ class LoginResponse implements LoginResponseContract
     {
         $home = RouteServiceProvider::HOME;
         switch (auth()->user()->role) {
-            case 'super-admin':
-                $home = '/super-admin/dashboard';
+            case 'admin':
+                $home = '/admin/dashboard';
                 break;
             case 'organization':
                 $home = '/organization/dashboard';
@@ -20,8 +20,8 @@ class LoginResponse implements LoginResponseContract
             case 'employee':
                 $home = '/employee/dashboard';
                 break;
-            case 'job-seeker':
-                $home = '/job-seeker/dashboard';
+            case 'candidate':
+                $home = '/candidate/dashboard';
                 break;
             default:
                 $home = RouteServiceProvider::HOME;

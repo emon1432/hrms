@@ -6,11 +6,11 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class JobSeeker
+class Candidate
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->check() && auth()->user()->role === 'job-seeker') {
+        if (auth()->check() && auth()->user()->role === 'candidate') {
             return $next($request);
         }
 
