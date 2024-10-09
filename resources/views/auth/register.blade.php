@@ -12,82 +12,79 @@
                         <div class="register-tab">
                             <nav>
                                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
-                                        data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
-                                        aria-selected="true">
-                                        Candidate
-                                    </button>
-                                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
-                                        data-bs-target="#nav-profile" type="button" role="tab"
-                                        aria-controls="nav-profile" aria-selected="false">
-                                        Company
-                                    </button>
+                                    <button class="nav-link active" id="nav-candidate-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-candidate" type="button" role="tab"
+                                        aria-controls="nav-candidate" aria-selected="true">Candidate</button>
+                                    <button class="nav-link" id="nav-organization-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-organization" type="button" role="tab"
+                                        aria-controls="nav-organization" aria-selected="false">Organization</button>
                                 </div>
                             </nav>
                             <div class="tab-content" id="nav-tabContent">
-                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
-                                    aria-labelledby="nav-home-tab">
-                                    <form method="POST" action="{{ route('register') }}">
+                                <div class="tab-pane fade show active" id="nav-candidate" role="tabpanel"
+                                    aria-labelledby="nav-candidate-tab">
+                                    <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
-
+                                        <input type="hidden" name="role" value="candidate">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <div class="form-inner mb-25">
-
-                                                    <label for="first_name">First Name*</label>
-
+                                                    <label for="first_name">First Name <span
+                                                            class="text-danger">*</span></label>
                                                     <div class="input-area">
-                                                        <img src="{{ asset('frontend') }}/images/icon/user-2.svg" alt />
-                                                        <x-input id="first_name" type="text" name="first_name"
-                                                            :value="old('first_name')" required autofocus autocomplete="name" />
+                                                        <img src="{{ asset('frontend') }}/images/icon/user-2.svg" alt>
+                                                        <input type="text" id="first_name" name="first_name"
+                                                            placeholder="Enter First Name" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-inner mb-25">
+                                                    <label for="last_name">Last Name <span
+                                                            class="text-danger">*</span></label>
+                                                    <div class="input-area">
+                                                        <img src="{{ asset('frontend') }}/images/icon/user-2.svg" alt>
+                                                        <input type="text" id="last_name" name="last_name"
+                                                            placeholder="Enter Last Name" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-inner mb-25">
+                                                    <label for="email">Email <span class="text-danger">*</span></label>
+                                                    <div class="input-area">
+                                                        <img src="{{ asset('frontend') }}/images/icon/email-2.svg" alt>
+                                                        <input type="email" id="email" name="email"
+                                                            placeholder="Enter Email" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-inner mb-25">
+                                                    <label for="phone">Phone <span class="text-danger">*</span></label>
+                                                    <div class="input-area">
+                                                        <img src="{{ asset('frontend') }}/images/icon/phone-2.svg" alt>
+                                                        <input type="text" id="phone" name="phone"
+                                                            placeholder="Enter Phone" required>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-inner mb-25">
-                                                    <label for="last_name">Last Name*</label>
-                                                    <div class="input-area">
-                                                        <img src="{{ asset('frontend') }}/images/icon/user-2.svg" alt />
-                                                        <x-input id="last_name" type="text" name="last_name"
-                                                            :value="old('name')" required autofocus autocomplete="name" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-inner mb-25">
-                                                    <label for="user_name">User Name*</label>
-                                                    <div class="input-area">
-                                                        <img src="{{ asset('frontend') }}/images/icon/user-2.svg" alt />
-                                                        <x-input id="user_name" type="text" name="user_name"
-                                                            :value="old('user_name')" required autofocus autocomplete="name" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-inner mb-25">
-                                                    <label for="email">Email*</label>
-
-                                                    <div class="input-area">
-                                                        <img src="{{ asset('frontend') }}/images/icon/email-2.svg" alt />
-                                                        <x-input id="email" type="email" name="email"
-                                                            :value="old('email')" required autocomplete="username" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-inner mb-25">
-                                                    <label for="password">Password*</label>
-                                                    <x-input id="password" type="password" name="password" required
-                                                        autocomplete="new-password" />
-
+                                                    <label for="password">Password <span
+                                                            class="text-danger">*</span></label>
+                                                    <input type="password" name="password" id="password"
+                                                        placeholder="Enter Password" required minlength="8" />
                                                     <i class="bi bi-eye-slash" id="togglePassword"></i>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-inner">
-                                                    <label for="password2">Confirm Password*</label>
-                                                    <x-input id="password_confirmation" type="password"
-                                                        name="password_confirmation" required autocomplete="new-password" />
+                                                    <label for="password_confirmation">Confirm Password <span
+                                                            class="text-danger">*</span></label>
+                                                    <input type="password" name="password_confirmation"
+                                                        id="password_confirmation" placeholder="Confirm Password" required
+                                                        minlength="8" />
                                                     <i class="bi bi-eye-slash" id="togglePassword2"></i>
                                                 </div>
                                             </div>
@@ -95,195 +92,108 @@
                                                 <div
                                                     class="form-agreement form-inner d-flex justify-content-between flex-wrap">
                                                     <div class="form-group two">
-                                                        <input type="checkbox" id="html1" />
-                                                        <label for="html1">Here, I will agree company terms &
+                                                        <input type="checkbox" id="terms_for_candidate" required
+                                                            name="terms">
+                                                        <label for="terms_for_candidate">Here, I will agree organization terms &
                                                             conditions.</label>
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                                                <div class="mt-4">
-                                                    <x-label for="terms">
-                                                        <div class="flex items-center">
-                                                            <x-checkbox name="terms" id="terms" required />
-
-                                                            <div class="ms-2">
-                                                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                                                    'terms_of_service' =>
-                                                                        '<a target="_blank" href="' .
-                                                                        route('terms.show') .
-                                                                        '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
-                                                                        __('Terms of Service') .
-                                                                        '</a>',
-                                                                    'privacy_policy' =>
-                                                                        '<a target="_blank" href="' .
-                                                                        route('policy.show') .
-                                                                        '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
-                                                                        __('Privacy Policy') .
-                                                                        '</a>',
-                                                                ]) !!}
-                                                            </div>
-                                                        </div>
-                                                    </x-label>
-                                                </div>
-                                            @endif
-
                                             <div class="col-md-12">
                                                 <div class="form-inner">
-                                                    <x-button class="primry-btn-2">
-                                                        {{ __('Register') }}
-                                                    </x-button>
+                                                    <button class="primry-btn-2" type="submit">Sign Up</button>
                                                 </div>
                                             </div>
-                                            <h6>
-                                                Already have an account?
-                                                <a href="{{ route('login') }}"> Login</a> Here
+                                            <h6>Already have an account? <a href="{{ route('login') }}"> Login</a> Here
                                             </h6>
-                                            <div class="login-difarent-way">
-                                                <div class="row g-4">
-                                                    <div class="col-md-6">
-                                                        <a href="https://myaccount.google.com/"><img
-                                                                src="{{ asset('frontend') }}/images/icon/google1.svg"
-                                                                alt />Log in with
-                                                            Google</a>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <a href="https://www.facebook.com/"><img
-                                                                src="{{ asset('frontend') }}/images/icon/facebook1.svg"
-                                                                alt />Log in with
-                                                            Facebook</a>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </form>
                                 </div>
-                                <div class="tab-pane fade" id="nav-profile" role="tabpanel"
-                                    aria-labelledby="nav-profile-tab">
-                                    <form>
+                                <div class="tab-pane fade" id="nav-organization" role="tabpanel"
+                                    aria-labelledby="nav-organization-tab">
+                                    <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" name="role" value="organization">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <div class="form-inner mb-25">
-                                                    <label for="firstname">First Name*</label>
+                                                    <label for="organization_name">Organization Name <span
+                                                            class="text-danger">*</span></label>
                                                     <div class="input-area">
-                                                        <img src="{{ asset('frontend') }}/images/icon/user-2.svg" alt />
-                                                        <input type="text" id="firstname" name="firstname"
-                                                            placeholder="Mr. Robert" />
+                                                        <img src="{{ asset('frontend') }}/images/icon/companies.svg" alt>
+                                                        <input type="text" id="organization_name"
+                                                            placeholder="Enter Organization Name" name="organization_name" required>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <div class="form-inner mb-25">
-                                                    <label for="lastname">Last Name*</label>
+                                                    <label for="organization_type">Organization Type <span
+                                                            class="text-danger">*</span></label>
                                                     <div class="input-area">
-                                                        <img src="{{ asset('frontend') }}/images/icon/user-2.svg" alt />
-                                                        <input type="text" id="lastname" name="lastname"
-                                                            placeholder="Jonson" />
+                                                        <img src="{{ asset('frontend') }}/images/icon/category.svg" alt>
+                                                        <input type="text" id="organization_type"
+                                                            placeholder="Enter Organization Type" name="organization_type" required>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <div class="form-inner mb-25">
-                                                    <label for="username">User Name*</label>
+                                                    <label for="email">Email <span class="text-danger">*</span></label>
                                                     <div class="input-area">
-                                                        <img src="{{ asset('frontend') }}/images/icon/user-2.svg" alt />
-                                                        <input type="text" id="username1" name="username"
-                                                            placeholder="robertjonson" />
+                                                        <img src="{{ asset('frontend') }}/images/icon/email-2.svg" alt>
+                                                        <input type="email" id="email" placeholder="Enter Email"
+                                                            name="email" required>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="form-inner mb-25">
-                                                    <label for="email">Email*</label>
-                                                    <div class="input-area">
-                                                        <img src="{{ asset('frontend') }}/images/icon/email-2.svg" alt />
-                                                        <input type="text" id="email1" name="email"
-                                                            placeholder="info@example.com" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-inner mb-25">
-                                                    <label for="companyname">Company Name*</label>
-                                                    <div class="input-area">
-                                                        <img src="{{ asset('frontend') }}/images/icon/company-2.svg"
-                                                            alt />
-                                                        <input type="text" id="companyname" name="companyname"
-                                                            placeholder="Mr. Robert" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-inner mb-25">
-                                                    <label>Company Type*</label>
-                                                    <div class="input-area">
-                                                        <img src="{{ asset('frontend') }}/images/icon/category-2.svg"
-                                                            alt />
-                                                        <select class="select1">
-                                                            <option value="0">Digital Agency</option>
-                                                            <option value="1">
-                                                                Digital Marketing Agency
-                                                            </option>
-                                                            <option value="2">Software Company</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-inner mb-25">
-                                                    <label for="password">Password*</label>
-                                                    <input type="password" name="password" id="password3"
-                                                        placeholder="Password" />
-                                                    <i class="bi bi-eye-slash" id="togglePassword3"></i>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <div class="form-inner">
-                                                    <label for="password4">Confirm Password*</label>
-                                                    <input type="password" name="confirmpassword" id="password4"
-                                                        placeholder="Confirm Password" />
-                                                    <i class="bi bi-eye-slash" id="togglePassword4"></i>
+                                                    <label for="phone">Phone <span class="text-danger">*</span></label>
+                                                    <div class="input-area mb-25">
+                                                        <img src="{{ asset('frontend') }}/images/icon/phone-2.svg" alt>
+                                                        <input type="text" id="phone" placeholder="Enter Phone"
+                                                            name="phone" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-inner mb-25">
+                                                    <label for="password">Password <span
+                                                            class="text-danger">*</span></label>
+                                                    <input type="password" id="password" placeholder="Enter Password"
+                                                        name="password" required minlength="8" />
+                                                    <i class="bi bi-eye-slash" id="togglePassword"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-inner mb-25">
+                                                    <label for="password_confirmation">Confirm Password <span
+                                                            class="text-danger">*</span></label>
+                                                    <input type="password" id="password_confirmation"
+                                                        placeholder="Confirm Password" name="password_confirmation"
+                                                        required minlength="8" />
+                                                    <i class="bi bi-eye-slash" id="togglePassword2"></i>
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div
                                                     class="form-agreement form-inner d-flex justify-content-between flex-wrap">
                                                     <div class="form-group two">
-                                                        <input type="checkbox" id="html" />
-                                                        <label for="html">Here, I will agree company terms &
+                                                        <input type="checkbox" id="terms_for_organization" required
+                                                            name="terms">
+                                                        <label for="terms_for_organization">Here, I will agree organization terms &
                                                             conditions.</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-inner">
-                                                    <button class="primry-btn-2" type="submit">
-                                                        Sign Up
-                                                    </button>
+                                                    <button class="primry-btn-2" type="submit">Sign Up</button>
                                                 </div>
                                             </div>
-                                            
-                                            <h6>
-                                                Already have an account?
-                                                <a href="{{ route('login') }}"> Login</a> Here
+                                            <h6>Already have an account? <a href="{{ route('login') }}"> Login</a> Here
                                             </h6>
-                                            <div class="login-difarent-way">
-                                                <div class="row g-4">
-                                                    <div class="col-md-6">
-                                                        <a href="https://myaccount.google.com/"><img
-                                                                src="{{ asset('frontend') }}/images/icon/google1.svg"
-                                                                alt />Log in with
-                                                            Google</a>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <a href="https://www.facebook.com/"><img
-                                                                src="{{ asset('frontend') }}/images/icon/facebook1.svg"
-                                                                alt />Log in with
-                                                            Facebook</a>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </form>
                                 </div>
@@ -295,69 +205,3 @@
         </div>
     </div>
 @endsection
-
-{{-- <form method="POST" action="{{ route('register') }}">
-    @csrf
-
-    <div>
-        <x-label for="name" value="{{ __('Name') }}" />
-        <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required
-            autofocus autocomplete="name" />
-    </div>
-
-    <div class="mt-4">
-        <x-label for="email" value="{{ __('Email') }}" />
-        <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
-            autocomplete="username" />
-    </div>
-
-    <div class="mt-4">
-        <x-label for="password" value="{{ __('Password') }}" />
-        <x-input id="password" class="block mt-1 w-full" type="password" name="password" required
-            autocomplete="new-password" />
-    </div>
-
-    <div class="mt-4">
-        <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-        <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation"
-            required autocomplete="new-password" />
-    </div>
-
-    @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-        <div class="mt-4">
-            <x-label for="terms">
-                <div class="flex items-center">
-                    <x-checkbox name="terms" id="terms" required />
-
-                    <div class="ms-2">
-                        {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                            'terms_of_service' =>
-                                '<a target="_blank" href="' .
-                                route('terms.show') .
-                                '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
-                                __('Terms of Service') .
-                                '</a>',
-                            'privacy_policy' =>
-                                '<a target="_blank" href="' .
-                                route('policy.show') .
-                                '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
-                                __('Privacy Policy') .
-                                '</a>',
-                        ]) !!}
-                    </div>
-                </div>
-            </x-label>
-        </div>
-    @endif
-
-    <div class="flex items-center justify-end mt-4">
-        <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            href="{{ route('login') }}">
-            {{ __('Already registered?') }}
-        </a>
-
-        <x-button class="ms-4">
-            {{ __('Register') }}
-        </x-button>
-    </div>
-</form> --}}
