@@ -117,7 +117,7 @@
                             <ul>
                                 <li><a class="save-btn" href="#">Save Job <span><i
                                                 class="bi bi-bookmark-fill"></i></span></a></li>
-                                <li><a class="primry-btn-2 lg-btn" href="#">Apply Position</a></li>
+                                <li><a class="primary-btn-2 lg-btn" href="#">Apply Position</a></li>
                             </ul>
                         </div>
                         <div class="job-summary-area mb-50">

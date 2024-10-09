@@ -23,7 +23,9 @@
     <link rel="stylesheet" href="{{ asset('frontend') }}/css/jquery.fancybox.min.css">
     <link rel="stylesheet" href="{{ asset('frontend') }}/css/datepicker.min.css">
     <link rel="stylesheet" href="{{ asset('frontend') }}/css/jquery-ui.css">
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/iziToast.css">
     <link rel="stylesheet" href="{{ asset('frontend') }}/css/style.css">
+    @stack('styles')
 </head>
 
 <body class="bg-wight">
@@ -45,7 +47,10 @@
     <script src="{{ asset('frontend') }}/js/select2.min.js"></script>
     <script src="{{ asset('frontend') }}/js/viewport.jquery.js"></script>
     <script src="{{ asset('frontend') }}/js/jquery.nice-number.min.js"></script>
+    <script src="{{ asset('frontend') }}/js/iziToast.js"></script>
     <script src="{{ asset('frontend') }}/js/main.js"></script>
+    @include('vendor.lara-izitoast.toast')
+    @stack('scripts')
 </body>
 
 

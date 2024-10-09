@@ -32,7 +32,7 @@
                             <form>
                                 <div class="form-inner">
                                     <input type="text" placeholder="Search..">
-                                    <button class="primry-btn-2" type="submit"><img
+                                    <button class="primary-btn-2" type="submit"><img
                                             src="{{asset('frontend')}}/images/icon/search-category.svg" alt></button>
                                 </div>
                             </form>

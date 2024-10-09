@@ -73,19 +73,25 @@
                                                 <div class="form-inner mb-25">
                                                     <label for="password">Password <span
                                                             class="text-danger">*</span></label>
-                                                    <input type="password" name="password" id="password"
-                                                        placeholder="Enter Password" required minlength="8" />
-                                                    <i class="bi bi-eye-slash" id="togglePassword"></i>
+                                                    <div class="input-area">
+                                                        <img src="{{ asset('frontend') }}/images/icon/lock-2.svg" alt>
+                                                        <input type="password" name="password" id="password"
+                                                            placeholder="Enter Password" required minlength="8" />
+                                                        <i class="bi bi-eye-slash" id="togglePassword"></i>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-inner">
                                                     <label for="password_confirmation">Confirm Password <span
                                                             class="text-danger">*</span></label>
-                                                    <input type="password" name="password_confirmation"
-                                                        id="password_confirmation" placeholder="Confirm Password" required
-                                                        minlength="8" />
-                                                    <i class="bi bi-eye-slash" id="togglePassword2"></i>
+                                                    <div class="input-area">
+                                                        <img src="{{ asset('frontend') }}/images/icon/lock-2.svg" alt>
+                                                        <input type="password" name="password_confirmation"
+                                                            id="password2" placeholder="Confirm Password"
+                                                            required minlength="8" />
+                                                        <i class="bi bi-eye-slash" id="togglePassword2"></i>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
@@ -94,14 +100,15 @@
                                                     <div class="form-group two">
                                                         <input type="checkbox" id="terms_for_candidate" required
                                                             name="terms">
-                                                        <label for="terms_for_candidate">Here, I will agree organization terms &
+                                                        <label for="terms_for_candidate">Here, I will agree organization
+                                                            terms &
                                                             conditions.</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-inner">
-                                                    <button class="primry-btn-2" type="submit">Sign Up</button>
+                                                    <button class="primary-btn-2" type="submit">Sign Up</button>
                                                 </div>
                                             </div>
                                             <h6>Already have an account? <a href="{{ route('login') }}"> Login</a> Here
@@ -122,7 +129,8 @@
                                                     <div class="input-area">
                                                         <img src="{{ asset('frontend') }}/images/icon/companies.svg" alt>
                                                         <input type="text" id="organization_name"
-                                                            placeholder="Enter Organization Name" name="organization_name" required>
+                                                            placeholder="Enter Organization Name" name="organization_name"
+                                                            required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -133,7 +141,8 @@
                                                     <div class="input-area">
                                                         <img src="{{ asset('frontend') }}/images/icon/category.svg" alt>
                                                         <input type="text" id="organization_type"
-                                                            placeholder="Enter Organization Type" name="organization_type" required>
+                                                            placeholder="Enter Organization Type" name="organization_type"
+                                                            required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -161,19 +170,26 @@
                                                 <div class="form-inner mb-25">
                                                     <label for="password">Password <span
                                                             class="text-danger">*</span></label>
-                                                    <input type="password" id="password" placeholder="Enter Password"
-                                                        name="password" required minlength="8" />
-                                                    <i class="bi bi-eye-slash" id="togglePassword"></i>
+                                                    <div class="input-area">
+                                                        <img src="{{ asset('frontend') }}/images/icon/lock-2.svg" alt>
+                                                        <input type="password" id="password3"
+                                                            placeholder="Enter Password" name="password" required
+                                                            minlength="8" />
+                                                        <i class="bi bi-eye-slash" id="togglePassword3"></i>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-inner mb-25">
                                                     <label for="password_confirmation">Confirm Password <span
                                                             class="text-danger">*</span></label>
-                                                    <input type="password" id="password_confirmation"
-                                                        placeholder="Confirm Password" name="password_confirmation"
-                                                        required minlength="8" />
-                                                    <i class="bi bi-eye-slash" id="togglePassword2"></i>
+                                                    <div class="input-area">
+                                                        <img src="{{ asset('frontend') }}/images/icon/lock-2.svg" alt>
+                                                        <input type="password" id="password4"
+                                                            placeholder="Confirm Password" name="password_confirmation"
+                                                            required minlength="8" />
+                                                        <i class="bi bi-eye-slash" id="togglePassword4"></i>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
@@ -182,14 +198,15 @@
                                                     <div class="form-group two">
                                                         <input type="checkbox" id="terms_for_organization" required
                                                             name="terms">
-                                                        <label for="terms_for_organization">Here, I will agree organization terms &
+                                                        <label for="terms_for_organization">Here, I will agree organization
+                                                            terms &
                                                             conditions.</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-inner">
-                                                    <button class="primry-btn-2" type="submit">Sign Up</button>
+                                                    <button class="primary-btn-2" type="submit">Sign Up</button>
                                                 </div>
                                             </div>
                                             <h6>Already have an account? <a href="{{ route('login') }}"> Login</a> Here
@@ -205,3 +222,15 @@
         </div>
     </div>
 @endsection
+@push('scripts')
+    @if ($errors->any())
+        <script>
+            @foreach ($errors->all() as $error)
+                iziToast.error({
+                    message: '{{ $error }}',
+                    position: 'topRight'
+                });
+            @endforeach
+        </script>
+    @endif
+@endpush

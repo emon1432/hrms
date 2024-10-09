@@ -90,7 +90,7 @@
                                     </select>
                                 </div>
                                 <div class="form-inner">
-                                    <button type="submit" class="primry-btn-2 "><img
+                                    <button type="submit" class="primary-btn-2 "><img
                                             src="{{ asset('frontend') }}/images/icon/search-icon.svg" alt>
                                         Search</button>
                                 </div>

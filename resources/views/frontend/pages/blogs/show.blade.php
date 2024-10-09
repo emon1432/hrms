@@ -239,7 +239,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-inner">
-                                    <button class="primry-btn-2 lg-btn w-unset" type="submit">Send Message</button>
+                                    <button class="primary-btn-2 lg-btn w-unset" type="submit">Send Message</button>
                                 </div>
                             </div>
                         </div>
@@ -430,7 +430,7 @@
                         <h5>Hey! Do You Looking For Any Jobs?</h5>
                         <p>Job agencies may also offer additional services such as resume building.</p>
                         <div class="find-job-btn">
-                            <a class="primry-btn-2 lg-btn " href="{{ route('blogs.show', 1) }}">Find Job</a>
+                            <a class="primary-btn-2 lg-btn " href="{{ route('blogs.show', 1) }}">Find Job</a>
                         </div>
                     </div>
                     <div class="job-img">

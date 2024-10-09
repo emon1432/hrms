@@ -336,7 +336,7 @@
                             </div>
                         </div>
                         <div class="job-widget-btn">
-                            <a class="primry-btn-2 lg-btn text-center" href="#">Go to Job Alert</a>
+                            <a class="primary-btn-2 lg-btn text-center" href="#">Go to Job Alert</a>
                         </div>
                     </div>
                 </div>

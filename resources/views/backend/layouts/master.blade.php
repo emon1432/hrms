@@ -15,6 +15,7 @@
     <link href="{{ asset('backend') }}/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('backend') }}/css/line-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('backend') }}/plugins/morris/morris.css" rel="stylesheet">
+    <link href="{{ asset('backend') }}/plugins/iziToast/css/iziToast.css" rel="stylesheet">
     <link href="{{ asset('backend') }}/css/style.css" rel="stylesheet">
 </head>
 
@@ -35,8 +36,10 @@
     <script src="{{ asset('backend') }}/js/jquery.slimscroll.min.js"></script>
     <script src="{{ asset('backend') }}/plugins/morris/morris.min.js"></script>
     <script src="{{ asset('backend') }}/plugins/raphael/raphael.min.js"></script>
+    <script src="{{ asset('backend') }}/plugins/iziToast/js/iziToast.js"></script>
     <script src="{{ asset('backend') }}/js/chart.js"></script>
     <script src="{{ asset('backend') }}/js/app.js"></script>
+    @include('vendor.lara-izitoast.toast')
 </body>
 
 </html>

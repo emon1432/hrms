@@ -278,7 +278,7 @@
                             </div>
                         </div>
                         <div class="job-widget-btn">
-                            <a class="primry-btn-2 lg-btn text-center" href="#">Make A Job Post</a>
+                            <a class="primary-btn-2 lg-btn text-center" href="#">Make A Job Post</a>
                         </div>
                     </div>
                 </div>
