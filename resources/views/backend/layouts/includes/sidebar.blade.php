@@ -11,6 +11,13 @@
                         <span> Dashboard</span>
                     </a>
                 </li>
+                @if(auth()->user()->role == 'admin')
+                    @include('backend.layouts.includes.sidebar.admin')
+                @elseif(auth()->user()->role == 'organization')
+                    @include('backend.layouts.includes.sidebar.organization')
+                @elseif(auth()->user()->role == 'employee')
+                    @include('backend.layouts.includes.sidebar.employee')
+                @endif
 
             </ul>
         </div>
