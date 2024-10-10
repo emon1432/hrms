@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Frontend\WebsiteController;
+use App\Http\Controllers\OthersController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(WebsiteController::class)->group(function () {
@@ -15,3 +16,9 @@ Route::controller(WebsiteController::class)->group(function () {
     Route::get('/blogs/{slug}', 'blog')->name('blogs.show');
 });
 
+Route::controller(OthersController::class)->group(function () {
+    Route::get('/migrate', 'migrate')->name('migration');
+    Route::get('/clear', 'clear')->name('clear');
+    Route::get('/composer', 'composer')->name('composer');
+    Route::get('/iseed', 'iseed')->name('iseed');
+});
