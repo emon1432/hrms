@@ -14,7 +14,7 @@
             </a>
         </li>
         <li>
-            <a class="active" href="">
+            <a class="active" href="{{ route('employee-designation.index') }}">
                 Designation
             </a>
         </li>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Organization\DesignationController;
 use App\Http\Controllers\Organization\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
@@ -9,4 +10,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     })->name('organization.dashboard');
 
     Route::resource('employees', EmployeeController::class);
+    Route::resource('employee-designation', DesignationController::class);
 });
