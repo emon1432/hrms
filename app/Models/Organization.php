@@ -29,6 +29,4 @@ class Organization extends Model
     }
 
     
-
-    
 }

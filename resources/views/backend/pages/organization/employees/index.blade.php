@@ -45,8 +45,10 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Email</th>
+                            <th>Designation</th>
+                            <th>Salary</th>
                             <th>Mobile</th>
+                            <th>Join Date</th>
                             <th class="text-center no-sort">Action</th>
                         </tr>
                     </thead>
@@ -64,8 +66,10 @@
                                         </a>
                                     </h2>
                                 </td>
-                                <td>{{ $employee->email }}</td>
+                                <td></td>
+                                <td></td>
                                 <td>{{ $employee->phone }}</td>
+                                <td></td>
                                 <td class="text-center">
                                     <a href="{{ route('employees.edit', $employee->id) }}" class="btn btn-primary">
                                         <i class="fa fa-pencil"></i>

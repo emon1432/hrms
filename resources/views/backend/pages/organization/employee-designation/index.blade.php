@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 @section('action-button')
     <div class="col-auto float-right ml-auto">
-        <a href="" class="btn add-btn">
+        <a href="{{ route('employee-designation.create') }}" class="btn add-btn">
             <i class="fa fa-plus"></i>
             Add Designation
         </a>
@@ -46,6 +46,8 @@
                         <tr>
                             <th>Designation</th>
                             <th>Category</th>
+                            <th>Created By Organization</th>
+                            <th>Status</th>
                             <th class="text-center no-sort">Action</th>
                         </tr>
                     </thead>
@@ -64,18 +66,13 @@
                                     </h2>
                                 </td>
                                 <td></td>
+                                <td></td>
+                                <td></td>
                                 <td class="text-center">
                                     <a href="" class="btn btn-primary">
                                         <i class="fa fa-pencil"></i>
                                     </a>
-                                    <form action="" method="POST"
-                                        style="display: inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger" type="submit">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                    </form>
+                                    
                                 </td>
                             </tr>
                         

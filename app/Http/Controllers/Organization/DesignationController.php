@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Organization;
 
 use App\Http\Controllers\Controller;
+use App\Models\JobCategory;
 use Illuminate\Http\Request;
 
 class DesignationController extends Controller
@@ -20,9 +21,9 @@ class DesignationController extends Controller
      */
     public function create()
     {
-        //
+        $job_categories = JobCategory::where('status', 1)->get();
+        return view('backend.pages.organization.employee-designation.create', compact('job_categories'));
     }
-
     /**
      * Store a newly created resource in storage.
      */
