@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 @section('action-button')
     <div class="col-auto float-right ml-auto">
-        <a href="" class="btn add-btn">
+        <a href=" {{ route('job-category.create') }}" class="btn add-btn">
             <i class="fa fa-plus"></i>
             Add Category
         </a>
@@ -45,46 +45,38 @@
                     <thead>
                         <tr>
                             <th>Category</th>
-                            <th>Created By</th>
+                            <th>Created By Organization</th>
                             <th>Status</th>
                             <th class="text-center no-sort">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        @forelse ($categories as $key => $category)
                             <tr>
                                 <td>
                                     <h2 class="table-avatar">
-                                        <a href="profile.html" class="avatar">
-                                            <img alt="" src="">
+                                        <a href="{{ $category->category_name }}" class="avatar">
+                                            <img alt="{{ $category->category_name }}" src="{{ imageShow($category->image) }}">
                                         </a>
-                                        <a href="profile.html">
-                                            
-                                            <span>Web Designer</span>
+                                        <a href="">
+                                            {{ $category->category_name }}
                                         </a>
                                     </h2>
                                 </td>
-                                <td></td>
-                                <td></td>
+                                <td>{{ $category->organization->name }}</td>
+                                <td>{{ $category->status == '0' ? 'Unpublish' : 'Publish' }}</td>
                                 <td class="text-center">
                                     <a href="" class="btn btn-primary">
                                         <i class="fa fa-pencil"></i>
                                     </a>
-                                    <form action="" method="POST"
-                                        style="display: inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger" type="submit">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                    </form>
+
                                 </td>
                             </tr>
-                        
+                        @empty
                             <tr>
                                 <td colspan="4" class="text-center">No Category Found</td>
                             </tr>
-                        
+                        @endforelse
                     </tbody>
                 </table>
             </div>

@@ -55,10 +55,10 @@
                             <tr>
                                 <td>
                                     <h2 class="table-avatar">
-                                        <a href="profile.html" class="avatar">
+                                        <a href="" class="avatar">
                                             <img alt="{{ $employee->first_name }}" src="{{ imageShow($employee->image) }}">
                                         </a>
-                                        <a href="profile.html">
+                                        <a href="">
                                             {{ $employee->first_name }} {{ $employee->last_name }}
                                             <span>Web Designer</span>
                                         </a>
