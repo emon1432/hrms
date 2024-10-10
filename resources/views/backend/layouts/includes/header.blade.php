@@ -15,7 +15,7 @@
     </a>
 
     <div class="page-title-box">
-        <h3>{{ auth()->user()->role }} Dashboard</h3>
+        <h3>{{ auth()->user()->role }} dashboard</h3>
     </div>
 
     <a class="mobile_btn" id="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>

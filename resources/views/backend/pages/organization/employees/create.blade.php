@@ -29,22 +29,38 @@
                                     required="" name="last_name">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="email">Email <span class="text-danger">*</span></label>
-                                <input type="email" class="form-control" id="email" placeholder="Enter your email"
-                                    required="" name="email">
-                            </div>
-                            <div class="col-md-6 mb-3">
                                 <label for="phone">Phone <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="phone" placeholder="Enter your phone"
                                     required="" name="phone">
                             </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="designation">Designation <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="designation" placeholder="Enter your designation"
+                                    required="" name="">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="join_date">Join Date <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="join_date" placeholder="Enter your join date"
+                                    required="" name="">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="salary">Salary <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="salary" placeholder="Enter your salary"
+                                    required="" name="">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email">Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email"
+                                    required="" name="email">
+                            </div>
+                            
                             <div class="col-md-6 mb-3">
                                 <label for="password">Password <span class="text-danger">*</span></label>
                                 <input type="password" class="form-control" id="password" placeholder="Enter your password"
                                     required="" min="8" name="password">
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label for="profile">Profile <span class="text-danger">*</span></label>
+                                <label for="profile">Profile Image<span class="text-danger">*</span></label>
                                 <input type="file" class="form-control" id="profile" required="" accept="image/*"
                                     name="profile"
                                     onchange="document.getElementById('profile_preview').src = window.URL.createObjectURL(this.files[0])">
