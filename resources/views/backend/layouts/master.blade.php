@@ -14,6 +14,9 @@
     <link href="{{ asset('backend') }}/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ asset('backend') }}/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('backend') }}/css/line-awesome.min.css" rel="stylesheet">
+    <link href="{{ asset('backend') }}/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="{{ asset('backend') }}/css/select2.min.css" rel="stylesheet">
+    <link href="{{ asset('backend') }}/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
     <link href="{{ asset('backend') }}/plugins/morris/morris.css" rel="stylesheet">
     <link href="{{ asset('backend') }}/plugins/iziToast/css/iziToast.css" rel="stylesheet">
     <link href="{{ asset('backend') }}/css/style.css" rel="stylesheet">
@@ -37,6 +40,11 @@
     <script src="{{ asset('backend') }}/plugins/morris/morris.min.js"></script>
     <script src="{{ asset('backend') }}/plugins/raphael/raphael.min.js"></script>
     <script src="{{ asset('backend') }}/plugins/iziToast/js/iziToast.js"></script>
+    <script src="{{ asset('backend') }}/js/select2.min.js"></script>
+    <script src="{{ asset('backend') }}/js/moment.min.js"></script>
+    <script src="{{ asset('backend') }}/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="{{ asset('backend') }}/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('backend') }}/js/dataTables.bootstrap4.min.js"></script>
     <script src="{{ asset('backend') }}/js/chart.js"></script>
     <script src="{{ asset('backend') }}/js/app.js"></script>
     @include('vendor.lara-izitoast.toast')

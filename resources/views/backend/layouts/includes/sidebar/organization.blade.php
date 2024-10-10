@@ -9,7 +9,7 @@
     </a>
     <ul style="display: none;">
         <li>
-            <a class="active" href="employees.html">
+            <a class="active" href="{{ route('employees.index') }}">
                 All Employees
             </a>
         </li>

@@ -13,7 +13,7 @@ class OthersController extends Controller
         $userId = auth()->user()->id ?? 1;
         Artisan::call('migrate:fresh --seed');
         notify()->success('Database migration has been completed successfully.');
-        auth()->loginUsingId(1);
+        auth()->loginUsingId($userId);
         return redirect()->route('admin.dashboard');
     }
 
