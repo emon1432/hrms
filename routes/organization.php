@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Organization\DesignationController;
 use App\Http\Controllers\Organization\EmployeeController;
+use App\Http\Controllers\Organization\JobCategoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified', 'organization'])->group(function () {
@@ -11,4 +12,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
     Route::resource('employees', EmployeeController::class);
     Route::resource('employee-designation', DesignationController::class);
+    Route::resource('job-category', JobCategoryController::class);
 });
