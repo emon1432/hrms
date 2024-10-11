@@ -109,17 +109,18 @@
                             <td>
                                 <a href="job-applicants.html" class="btn btn-sm btn-primary">3 Candidates</a>
                             </td>
-                            <td class="text-right">
-                                <div class="dropdown dropdown-action">
-                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown"
-                                        aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="#" class="dropdown-item" data-toggle="modal"
-                                            data-target="#edit_job"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                        <a href="#" class="dropdown-item" data-toggle="modal"
-                                            data-target="#delete_job"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                    </div>
-                                </div>
+                            <td class="text-center">
+                                <a href="" class="btn btn-primary">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <form action="" method="POST"
+                                    style="display: inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger" type="submit">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                         <tr>
@@ -177,17 +178,18 @@
                             <td>
                                 <a href="job-applicants.html" class="btn btn-sm btn-primary">2 Candidates</a>
                             </td>
-                            <td class="text-right">
-                                <div class="dropdown dropdown-action">
-                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown"
-                                        aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="#" class="dropdown-item" data-toggle="modal"
-                                            data-target="#edit_job"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                        <a href="#" class="dropdown-item" data-toggle="modal"
-                                            data-target="#delete_job"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                    </div>
-                                </div>
+                            <td class="text-center">
+                                <a href="" class="btn btn-primary">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <form action="" method="POST"
+                                    style="display: inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger" type="submit">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                         <tr>
@@ -245,17 +247,18 @@
                             <td>
                                 <a href="job-applicants.html" class="btn btn-sm btn-primary">1 Candidates</a>
                             </td>
-                            <td class="text-right">
-                                <div class="dropdown dropdown-action">
-                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown"
-                                        aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="#" class="dropdown-item" data-toggle="modal"
-                                            data-target="#edit_job"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                        <a href="#" class="dropdown-item" data-toggle="modal"
-                                            data-target="#delete_job"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                    </div>
-                                </div>
+                            <td class="text-center">
+                                <a href="" class="btn btn-primary">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <form action="" method="POST"
+                                    style="display: inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger" type="submit">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     </tbody>

@@ -20,7 +20,7 @@ class JobController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.pages.organization.job-management.create');
     }
 
     /**
