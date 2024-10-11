@@ -47,13 +47,31 @@
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label for="salary_from">Salary From <span class="text-danger">*</span></label>
-                                <input type="date" class="form-control" id="salary_from"
-                                    placeholder="Enter vacancy" required="" name="salary_from">
+                                <label for="job_experience">Experiences <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="job_experience"
+                                    placeholder="Enter experience" required="" name="job_experience">
                             </div>
 
                             <div class="col-md-6 mb-3">
+                                <label for="gender">Gender <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="gender"
+                                    placeholder="Enter gender" required="" name="gender">
+                            </div>
+
+                            <div class="col-md-3 mb-3">
+                                <label for="salary_from">Salary Start From <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="salary_from"
+                                    placeholder="Enter amount" required="" name="salary_from">
+                            </div>
+
+                            <div class="col-md-3 mb-3">
                                 <label for="salary_to">Salary To <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="salary_to"
+                                    placeholder="Enter amount" required="" name="salary_to">
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="salary_to">Deadline <span class="text-danger">*</span></label>
                                 <input type="date" class="form-control" id="salary_to"
                                     placeholder="Enter vacancy" required="" name="salary_to">
                             </div>
