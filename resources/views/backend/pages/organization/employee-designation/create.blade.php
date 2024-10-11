@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <button class="btn btn-info" type="submit">Save Category</button>
-                        <a href="{{ route('job-category.index') }}" class="btn btn-danger">Cancel</a>
+                        <a href="{{ route('employee-designation.index') }}" class="btn btn-danger">Cancel</a>
                         <button class="btn btn-primary" type="reset">Reset</button>
                     </form>
                 </div>

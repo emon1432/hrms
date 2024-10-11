@@ -13,7 +13,7 @@ class JobCategoryController extends Controller
      */
     public function index()
     {
-        $categories = JobCategory::all();
+        $categories = JobCategory::where('status', 1)->get();
         return view('backend.pages.organization.job-category.index', compact('categories'));
     }
 
