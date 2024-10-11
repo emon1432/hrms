@@ -35,7 +35,7 @@
                                 <img src="{{ asset('uploads/default.png') }}" id="profile_preview" class="img-thumbnail"
                                     height="100" width="100" alt="">
                             </div>
-                            <div class="col-sm-6 col-md-3">
+                            <div class="col-md-6 mb-3">
                                 <div class="form-group form-focus select-focus">
                                     <select class="select floating" name="status">
                                         <option selected="selected">Select Status</option>

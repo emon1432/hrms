@@ -23,19 +23,24 @@
 
 <li class="submenu">
     <a href="javascript:void(0);">
-        <i class="la la-user"></i>
-        <span> Manage Jobs</span>
+        <i class="la la-briefcase"></i>
+        <span>Jobs</span>
         <span class="menu-arrow"></span>
     </a>
     <ul style="display: none;">
         <li>
-            <a class="active" href="">
-                All Jobs
+            <a class="active" href="{{ route('job-management.index') }}">
+                Job Management
             </a>
         </li>
         <li>
             <a class="active" href="{{ route('job-category.index') }}">
-                Category
+                Job Category
+            </a>
+        </li>
+        <li>
+            <a class="active" href="">
+                Job Type
             </a>
         </li>
     </ul>
