@@ -28,5 +28,10 @@ class Organization extends Model
         return $this->hasMany(Employee::class);
     }
 
+    public function employeeDesignation()
+    {
+        return $this->hasMany(EmployeeDesignation::class);
+    }
+
     
 }

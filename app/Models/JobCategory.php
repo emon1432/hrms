@@ -22,5 +22,11 @@ class JobCategory extends Model
         return $this->belongsTo(Organization::class);
     }
 
+    //has many designation
+    public function employeeDesignation()
+    {
+        return $this->hasMany(EmployeeDesignation::class);
+    }
+
 }
 

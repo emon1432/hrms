@@ -24,6 +24,11 @@ class EmployeeDesignation extends Model
         return $this->belongsTo(JobCategory::class);
     }
 
+    public function organization()
+    {
+        return $this->belongsTo(Organization::class);
+    }
+
 
 
 }
