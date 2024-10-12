@@ -20,8 +20,8 @@
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
                                 <label for="job_name">Job Title <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="job_name"
-                                    placeholder="Enter name" required="" name="job_name">
+                                <input type="text" class="form-control" id="job_name" placeholder="Enter name"
+                                    required="" name="job_name">
                             </div>
 
                             <div class="col-md-6 mb-3">
@@ -36,14 +36,14 @@
 
                             <div class="col-md-6 mb-3">
                                 <label for="job_location">Job Location <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="job_location"
-                                    placeholder="Enter location" required="" name="job_location">
+                                <input type="text" class="form-control" id="job_location" placeholder="Enter location"
+                                    required="" name="job_location">
                             </div>
 
                             <div class="col-md-6 mb-3">
                                 <label for="job_vacancy">Job Vacancies <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="job_vacancy"
-                                    placeholder="Enter vacancy" required="" name="job_vacancy">
+                                <input type="text" class="form-control" id="job_vacancy" placeholder="Enter vacancy"
+                                    required="" name="job_vacancy">
                             </div>
 
                             <div class="col-md-6 mb-3">
@@ -54,26 +54,26 @@
 
                             <div class="col-md-6 mb-3">
                                 <label for="gender">Gender <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="gender"
-                                    placeholder="Enter gender" required="" name="gender">
+                                <input type="text" class="form-control" id="gender" placeholder="Enter gender"
+                                    required="" name="gender">
                             </div>
 
                             <div class="col-md-3 mb-3">
                                 <label for="salary_from">Salary Start From <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="salary_from"
-                                    placeholder="Enter amount" required="" name="salary_from">
+                                <input type="text" class="form-control" id="salary_from" placeholder="Enter amount"
+                                    required="" name="salary_from">
                             </div>
 
                             <div class="col-md-3 mb-3">
                                 <label for="salary_to">Salary To <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="salary_to"
-                                    placeholder="Enter amount" required="" name="salary_to">
+                                <input type="text" class="form-control" id="salary_to" placeholder="Enter amount"
+                                    required="" name="salary_to">
                             </div>
 
                             <div class="col-md-6 mb-3">
                                 <label for="salary_to">Deadline <span class="text-danger">*</span></label>
-                                <input type="date" class="form-control" id="salary_to"
-                                    placeholder="Enter vacancy" required="" name="salary_to">
+                                <input type="date" class="form-control" id="salary_to" placeholder="Enter vacancy"
+                                    required="" name="salary_to">
                             </div>
 
                             <div class="col-md-6 mb-3">
@@ -104,8 +104,8 @@
 
                             <div class="col-md-12 mb-3">
                                 <label for="job_description">Job Description <span class="text-danger">*</span></label>
-                                <textarea class="form-control" id="job_description"
-                                    placeholder="Enter Description" required="" name="job_description"></textarea>
+                                <textarea class="form-control" id="job_description" placeholder="Enter Description" required=""
+                                    name="job_description"></textarea>
                             </div>
 
                         </div>
@@ -118,3 +118,18 @@
         </div>
     </div>
 @endsection
+
+@push('backend-js')
+    <script>
+        $(document).ready(function() {
+            // summernote editor
+            $('#job_description').summernote({
+                placeholder: ' Job description',
+                height: 150,
+                
+
+            });
+
+        });
+    </script>
+@endpush
