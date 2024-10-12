@@ -36,7 +36,7 @@
                                 <td>{{ $designation->organization->name }}</td>
                                 <td>{{ $designation->status == '0' ? 'Unpublish' : 'Publish' }}</td>
                                 <td class="text-center">
-                                    <a href="" class="btn btn-primary">
+                                    <a href="{{ route('employee-designation.edit', $designation->id) }}" class="btn btn-primary">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                     

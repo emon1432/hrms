@@ -15,7 +15,7 @@
                     <h5 class="card-title mb-0">Edit Category</h5>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('job-category.update', auth()->user()->organization->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('job-category.update', $job_category->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="form-row">

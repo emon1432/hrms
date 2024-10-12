@@ -70,7 +70,9 @@ class DesignationController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $designations = EmployeeDesignation::findOrFail($id);
+        $categories = JobCategory::where('status', 1)->get();
+        return view('backend.pages.organization.employee-designation.edit', compact('designations', 'categories'));
     }
 
     /**
@@ -78,7 +80,26 @@ class DesignationController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $designations = EmployeeDesignation::findOrFail($id);
+        $validate = validator($request->all(), [
+            'designation_name' => 'required|unique:employee_designations,designation_name',
+            'category_name' => 'required',
+            'slug' => 'unique:employee_designations,slug',
+        ]);
+
+        if ($validate->fails()) {
+            notify()->error($validate->errors()->first());
+            return back();
+        }
+        $request->merge([
+            'organization_id' => auth()->user()->organization->id,
+            'job_category_id' => $request->category_name,
+            'slug' => slugify($request->designation_name),
+        ]);
+        $designations->update($request->all());
+
+        notify()->success('Designation updated successfully!');
+        return redirect()->route('employee-designation.index');
     }
 
     /**
