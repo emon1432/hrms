@@ -28,5 +28,10 @@ class JobCategory extends Model
         return $this->hasMany(EmployeeDesignation::class);
     }
 
+    public function job()
+    {
+        return $this->hasMany(Job::class);
+    }
+
 }
 

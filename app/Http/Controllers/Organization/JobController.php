@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Organization;
 
 use App\Http\Controllers\Controller;
+use App\Models\Job;
+use App\Models\JobCategory;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
@@ -20,7 +22,8 @@ class JobController extends Controller
      */
     public function create()
     {
-        return view('backend.pages.organization.job-management.create');
+        $job_categories = JobCategory::where('status', 1)->get();
+        return view('backend.pages.organization.job-management.create', compact('job_categories'));
     }
 
     /**
@@ -28,7 +31,39 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = validator($request->all(), [
+            'title' => 'required',
+            'category_name' => 'required',
+            'location' => 'required',
+            'vacancy' => 'required',
+            'experience' => 'required',
+            'gender' => 'required',
+            'salary_from' => 'required',
+            'salary_to' => 'required',
+            'type' => 'required',
+            'status' => 'required',
+            'description' => 'required',
+            
+            
+        ]);
+
+        if ($validate->fails()) {
+            notify()->error($validate->errors()->first());
+            return back();
+        }
+        $request->merge([
+            'organization_id' => auth()->user()->organization->id,
+            'job_category_id' => $request->category_name,
+            'slug' => slugify($request->title),
+        ]);
+
+        // return response()->json($request);
+
+        Job::create($request->all());
+        
+
+        notify()->success('Job created successfully!');
+        return redirect()->route('job-management.index');
     }
 
     /**

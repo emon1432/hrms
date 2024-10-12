@@ -28,10 +28,21 @@ class Organization extends Model
         return $this->hasMany(Employee::class);
     }
 
+    public function jobCategory()
+    {
+        return $this->hasMany(JobCategory::class);
+
+    }
+
     public function employeeDesignation()
     {
         return $this->hasMany(EmployeeDesignation::class);
     }
 
-    
+    public function job()
+    {
+        return $this->hasMany(Job::class);
+
+    }
+
 }

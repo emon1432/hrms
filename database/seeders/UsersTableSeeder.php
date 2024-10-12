@@ -44,7 +44,7 @@ class UsersTableSeeder extends Seeder
                 'two_factor_secret' => NULL,
                 'two_factor_recovery_codes' => NULL,
                 'two_factor_confirmed_at' => NULL,
-                'remember_token' => NULL,
+                'remember_token' => 'o3LTwsrN5jvcHO7JhigRzvflJmcglb4bDJuY49u9KPD0kfzomkDBlddhh7m3',
                 'current_team_id' => NULL,
                 'created_at' => '2024-10-10 08:44:04',
                 'updated_at' => '2024-10-10 08:44:04',
@@ -63,6 +63,21 @@ class UsersTableSeeder extends Seeder
                 'current_team_id' => NULL,
                 'created_at' => '2024-10-10 08:42:27',
                 'updated_at' => '2024-10-10 08:42:27',
+            ),
+            3 => 
+            array (
+                'id' => 4,
+                'role' => 'employee',
+                'email' => 'takeru@mailinator.com',
+                'email_verified_at' => NULL,
+                'password' => '$2y$12$eMpuK31C5d1ZfpghHw2JMuTko4SgaEjevuKh7uadwK6NZN.K3FyGe',
+                'two_factor_secret' => NULL,
+                'two_factor_recovery_codes' => NULL,
+                'two_factor_confirmed_at' => NULL,
+                'remember_token' => NULL,
+                'current_team_id' => NULL,
+                'created_at' => '2024-10-10 11:24:41',
+                'updated_at' => '2024-10-10 11:24:41',
             ),
         ));
         
