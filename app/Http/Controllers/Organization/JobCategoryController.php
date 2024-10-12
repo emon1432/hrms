@@ -65,7 +65,9 @@ class JobCategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $job_category = JobCategory::findOrFail($id);
+
+        return view('backend.pages.organization.job-category.edit', compact('job_category'));
     }
 
     /**
@@ -73,7 +75,26 @@ class JobCategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $job_category = JobCategory::findOrFail($id);
+        $validate = validator($request->all(), [
+            'category_name' => 'required|unique:job_categories,category_name',
+            'slug' => 'unique:job_categories,slug',
+            'profile' => 'required|image|max:2048',
+        ]);
+
+        if ($validate->fails()) {
+            notify()->error($validate->errors()->first());
+            return back();
+        }
+        $request->merge([
+            'organization_id' => auth()->user()->organization->id,
+            'image' => imageUploadManager($request->profile, slugify($request->category_name), 'job_category', 40, 40),
+            'slug' => slugify($request->category_name),
+        ]);
+        $job_category->update($request->all());
+
+        notify()->success('Category updated successfully!');
+        return redirect()->route('job-category.index');
     }
 
     /**

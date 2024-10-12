@@ -38,10 +38,5 @@
                 Job Category
             </a>
         </li>
-        <li>
-            <a class="active" href="">
-                Job Type
-            </a>
-        </li>
     </ul>
 </li>

@@ -66,7 +66,7 @@
                                 <td>{{ $category->organization->name }}</td>
                                 <td>{{ $category->status == '0' ? 'Unpublish' : 'Publish' }}</td>
                                 <td class="text-center">
-                                    <a href="" class="btn btn-primary">
+                                    <a href="{{ route('job-category.edit', auth()->user()->organization->id) }}" class="btn btn-primary">
                                         <i class="fa fa-pencil"></i>
                                     </a>
 
