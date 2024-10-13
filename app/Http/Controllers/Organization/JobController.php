@@ -16,7 +16,7 @@ class JobController extends Controller
     public function index()
     {
         $jobs = Job::where('created_by', auth()->user()->organization->id)->latest()->get();
-        // where('created_by', auth()->user()->id)->latest()->get()
+        
         return view('backend.pages.organization.job-management.index' , compact('jobs'));
     }
 

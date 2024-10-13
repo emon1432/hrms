@@ -106,6 +106,7 @@ class DesignationController extends Controller
         $request->merge([
             'organization_id' => auth()->user()->organization->id,
             'job_category_id' => $request->category_name,
+            'updated_by' => auth()->user()->organization->id,
             'slug' => slugify($request->designation_name),
         ]);
         $designations->update($request->all());

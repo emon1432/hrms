@@ -41,10 +41,14 @@ class Job extends Model
 
     }
 
-    //join with user table
     public function createdBy()
     {
         return $this->belongsTo(Organization::class, 'created_by');
+    }
+
+    public function updatedBy()
+    {
+        return $this->belongsTo(Organization::class, 'updated_by');
     }
 
 
