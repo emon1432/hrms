@@ -21,7 +21,7 @@ class LoginResponse implements LoginResponseContract
                 $home = '/employee/dashboard';
                 break;
             case 'candidate':
-                $home = '/candidate/dashboard';
+                $home = '/my-dashboard';
                 break;
             default:
                 $home = RouteServiceProvider::HOME;
