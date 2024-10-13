@@ -89,12 +89,13 @@ class EmployeeController extends Controller
 
     public function destroy(string $id)
     {
+
         $employee = Employee::findOrFail($id);
         imageDeleteManager($employee->image);
-        $employee->user->delete();
         $employee->delete();
 
         notify()->success('Employee deleted successfully!');
         return back();
+
     }
 }

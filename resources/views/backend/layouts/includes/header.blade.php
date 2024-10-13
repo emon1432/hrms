@@ -35,7 +35,7 @@
         </li>
 
 
-        <li class="nav-item dropdown has-arrow flag-nav">
+        {{-- <li class="nav-item dropdown has-arrow flag-nav">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">
                 <img src="{{ asset('backend') }}/img/flags/us.png" alt height="20"> <span>English</span>
             </a>
@@ -53,10 +53,10 @@
                     <img src="{{ asset('backend') }}/img/flags/de.png" alt height="16"> German
                 </a>
             </div>
-        </li>
+        </li> --}}
 
 
-        <li class="nav-item dropdown">
+        {{-- <li class="nav-item dropdown">
             <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">
                 <i class="fa fa-bell-o"></i> <span class="badge badge-pill">3</span>
             </a>
@@ -154,10 +154,10 @@
                     <a href="activities.html">View all Notifications</a>
                 </div>
             </div>
-        </li>
+        </li> --}}
 
 
-        <li class="nav-item dropdown">
+        {{-- <li class="nav-item dropdown">
             <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">
                 <i class="fa fa-comment-o"></i> <span class="badge badge-pill">8</span>
             </a>
@@ -264,7 +264,7 @@
                     <a href="chat.html">View all Messages</a>
                 </div>
             </div>
-        </li>
+        </li> --}}
 
         <li class="nav-item dropdown has-arrow main-drop">
             <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">

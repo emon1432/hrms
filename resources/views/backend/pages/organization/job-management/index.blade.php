@@ -114,7 +114,7 @@
                                     </div> --}}
                                 </td>
                                 <td>
-                                    <a href="" class="btn btn-sm btn-primary">3 Candidates</a>
+                                    <a href="" class="btn btn-sm btn-primary">0 Candidate</a>
                                 </td>
                                 <td class="text-center">
                                     <a href="{{ route('job-management.edit', $data->id) }}" class="btn btn-primary">
