@@ -15,7 +15,8 @@
                     <h5 class="card-title mb-0">Edit Job</h5>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('job-management.update' , $jobs->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('job-management.update', $jobs->id) }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="form-row">
@@ -29,9 +30,10 @@
                                 <label for="category_name">Category <span class="text-danger">*</span></label>
                                 <div class="form-group form-focus select-focus">
                                     <select class="select floating" name="category_name">
-                                        <option value="" disabled selected>Select Category</option>
+                                        <option disabled>Select Category</option>
                                         @foreach ($job_categories as $job_category)
                                             <option value="{{ $job_category->id }}">
+                                                {{ $job_category->job_category_id == $job_category->id ? 'selected' : '' }}
                                                 {{ $job_category->category_name }}
                                             </option>
                                         @endforeach
@@ -53,8 +55,8 @@
 
                             <div class="col-md-6 mb-3">
                                 <label for="experience">Experiences <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="experience"
-                                    placeholder="Enter experience" required="" name="experience" value="{{ $jobs->experience }}">
+                                <input type="text" class="form-control" id="experience" placeholder="Enter experience"
+                                    required="" name="experience" value="{{ $jobs->experience }}">
                             </div>
 
                             <div class="col-md-6 mb-3">
@@ -85,12 +87,17 @@
                                 <label for="type">Job Type <span class="text-danger">*</span></label>
                                 <div class="form-group form-focus select-focus">
                                     <select class="select floating" name="type">
-                                        <option selected="selected">Select job type</option>
-                                        <option value="Full Time">Full Time</option>
-                                        <option value="Part Time">Part Time</option>
-                                        <option value="Internship">Internship</option>
-                                        <option value="Temporary">Temporary</option>
-                                        <option value="Other">Other</option>
+                                        <option disabled>Select job type</option>
+                                        <option value="Full Time" {{ $jobs->type == 'Full Time' ? 'selected' : '' }}>Full
+                                            Time</option>
+                                        <option value="Part Time" {{ $jobs->type == 'Part Time' ? 'selected' : '' }}>Part
+                                            Time</option>
+                                        <option value="Internship" {{ $jobs->type == 'Internship' ? 'selected' : '' }}>
+                                            Internship</option>
+                                        <option value="Temporary" {{ $jobs->type == 'Temporary' ? 'selected' : '' }}>
+                                            Temporary</option>
+                                        <option value="Other" {{ $jobs->type == 'Other' ? 'selected' : '' }}>Other
+                                        </option>
 
                                     </select>
                                 </div>
@@ -100,10 +107,13 @@
                                 <label for="status"> Job Status <span class="text-danger">*</span></label>
                                 <div class="form-group form-focus select-focus">
                                     <select class="select floating" name="status">
-                                        <option selected="selected">Select Status</option>
-                                        <option value="Open">Open</option>
-                                        <option value="Closed">Closed</option>
-                                        <option value="Cancelled">Cancelled</option>
+                                        <option disabled>Select Status</option>
+                                        <option value="Open" {{ $jobs->status == 'Open' ? 'selected' : '' }}>Open
+                                        </option>
+                                        <option value="Closed" {{ $jobs->status == 'Closed' ? 'selected' : '' }}>Closed
+                                        </option>
+                                        <option value="Cancelled" {{ $jobs->status == 'Cancelled' ? 'selected' : '' }}>
+                                            Cancelled</option>
 
                                     </select>
                                 </div>
@@ -111,8 +121,7 @@
 
                             <div class="col-md-12 mb-3">
                                 <label for="description">Job Description <span class="text-danger">*</span></label>
-                                <textarea class="form-control" id="description" placeholder="Enter Description" required=""
-                                    name="description">{{ $jobs->description }}"</textarea>
+                                <textarea class="form-control" id="description" placeholder="Enter Description" required="" name="description">{{ $jobs->description }}"</textarea>
                             </div>
 
                         </div>
@@ -133,7 +142,7 @@
             $('#description').summernote({
                 placeholder: ' Job description',
                 height: 150,
-                
+
 
             });
 
