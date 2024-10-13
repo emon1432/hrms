@@ -47,8 +47,8 @@
                             <th>#</th>
                             <th>Job Title</th>
                             <th>Department</th>
-                            <th>Start Date</th>
-                            <th>Expire Date</th>
+                            <th>Job Post Date</th>
+                            <th>Deadline</th>
                             <th class="text-center">Job Type</th>
                             <th class="text-center">Status</th>
                             <th>Applicants</th>
@@ -56,211 +56,80 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td><a href="job-details.html">Web Developer</a></td>
-                            <td>Development</td>
-                            <td>3 Mar 2019</td>
-                            <td>31 May 2019</td>
-                            <td class="text-center">
-                                <div class="dropdown action-label">
-                                    <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#"
-                                        data-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa fa-dot-circle-o text-danger"></i> Full
-                                        Time
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-info"></i>
-                                            Full
-                                            Time</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-success"></i>
-                                            Part Time</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-danger"></i>
-                                            Internship</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-warning"></i>
-                                            Temporary</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-warning"></i>
-                                            Other</a>
+                        @forelse ($jobs as $key => $data)
+                            <tr>
+                                <td>1</td>
+                                <td><a href="">{{ $data->title }}</a></td>
+                                <td>{{ $data->jobCategory->category_name }}</td>
+                                <td>{{ $data->created_at->format('Y-m-d') }}</td>
+                                <td>{{ $data->deadline }}</td>
+                                <td class="text-center">
+                                    <div class="dropdown action-label">
+                                        <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#"
+                                            data-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa fa-dot-circle-o text-danger"></i> Full
+                                            Time
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="#"><i
+                                                    class="fa fa-dot-circle-o text-info"></i>
+                                                Full
+                                                Time</a>
+                                            <a class="dropdown-item" href="#"><i
+                                                    class="fa fa-dot-circle-o text-success"></i>
+                                                Part Time</a>
+                                            <a class="dropdown-item" href="#"><i
+                                                    class="fa fa-dot-circle-o text-danger"></i>
+                                                Internship</a>
+                                            <a class="dropdown-item" href="#"><i
+                                                    class="fa fa-dot-circle-o text-warning"></i>
+                                                Temporary</a>
+                                            <a class="dropdown-item" href="#"><i
+                                                    class="fa fa-dot-circle-o text-warning"></i>
+                                                Other</a>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td class="text-center">
-                                <div class="dropdown action-label">
-                                    <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#"
-                                        data-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa fa-dot-circle-o text-danger"></i> Open
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-info"></i>
-                                            Open</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-success"></i>
-                                            Closed</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-danger"></i>
-                                            Cancelled</a>
+                                </td>
+                                <td class="text-center">
+                                    <div class="dropdown action-label">
+                                        <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#"
+                                            data-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa fa-dot-circle-o text-danger"></i> Open
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="#"><i
+                                                    class="fa fa-dot-circle-o text-info"></i>
+                                                Open</a>
+                                            <a class="dropdown-item" href="#"><i
+                                                    class="fa fa-dot-circle-o text-success"></i>
+                                                Closed</a>
+                                            <a class="dropdown-item" href="#"><i
+                                                    class="fa fa-dot-circle-o text-danger"></i>
+                                                Cancelled</a>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="job-applicants.html" class="btn btn-sm btn-primary">3 Candidates</a>
-                            </td>
-                            <td class="text-center">
-                                <a href="" class="btn btn-primary">
-                                    <i class="fa fa-pencil"></i>
-                                </a>
-                                <form action="" method="POST"
-                                    style="display: inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger" type="submit">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td><a href="job-details.html">Web Designer</a></td>
-                            <td>Designing</td>
-                            <td>3 Mar 2019</td>
-                            <td>31 May 2019</td>
-                            <td class="text-center">
-                                <div class="dropdown action-label">
-                                    <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#"
-                                        data-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa fa-dot-circle-o text-success"></i> Part
-                                        Time
+                                </td>
+                                <td>
+                                    <a href="job-applicants.html" class="btn btn-sm btn-primary">3 Candidates</a>
+                                </td>
+                                <td class="text-center">
+                                    <a href="{{ route('job-management.edit', $data->id) }}" class="btn btn-primary">
+                                        <i class="fa fa-pencil"></i>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-info"></i> Full
-                                            Time</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-success"></i>
-                                            Part Time</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-danger"></i>
-                                            Internship</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-warning"></i>
-                                            Temporary</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-warning"></i>
-                                            Other</a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">
-                                <div class="dropdown action-label">
-                                    <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#"
-                                        data-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa fa-dot-circle-o text-success"></i>
-                                        Closed
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-info"></i>
-                                            Open</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-success"></i>
-                                            Closed</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-danger"></i>
-                                            Cancelled</a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="job-applicants.html" class="btn btn-sm btn-primary">2 Candidates</a>
-                            </td>
-                            <td class="text-center">
-                                <a href="" class="btn btn-primary">
-                                    <i class="fa fa-pencil"></i>
-                                </a>
-                                <form action="" method="POST"
-                                    style="display: inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger" type="submit">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td><a href="job-details.html">Android Developer</a></td>
-                            <td>Android</td>
-                            <td>3 Mar 2019</td>
-                            <td>31 May 2019</td>
-                            <td class="text-center">
-                                <div class="dropdown action-label">
-                                    <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#"
-                                        data-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa fa-dot-circle-o text-danger"></i>
-                                        Internship
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-info"></i> Full
-                                            Time</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-success"></i>
-                                            Part Time</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-danger"></i>
-                                            Internship</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-warning"></i>
-                                            Temporary</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-warning"></i>
-                                            Other</a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">
-                                <div class="dropdown action-label">
-                                    <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#"
-                                        data-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa fa-dot-circle-o text-danger"></i>
-                                        Cancelled
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-info"></i>
-                                            Open</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-success"></i>
-                                            Closed</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fa fa-dot-circle-o text-danger"></i>
-                                            Cancelled</a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="job-applicants.html" class="btn btn-sm btn-primary">1 Candidates</a>
-                            </td>
-                            <td class="text-center">
-                                <a href="" class="btn btn-primary">
-                                    <i class="fa fa-pencil"></i>
-                                </a>
-                                <form action="" method="POST"
-                                    style="display: inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger" type="submit">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
+                                    <form action="" method="POST" style="display: inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="4" class="text-center">No Job Found</td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

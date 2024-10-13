@@ -12,7 +12,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title mb-0">Add New Job</h5>
+                    <h5 class="card-title mb-0">Edit Job</h5>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('job-management.store') }}" method="POST" enctype="multipart/form-data">
@@ -115,7 +115,7 @@
                             </div>
 
                         </div>
-                        <button class="btn btn-info" type="submit">Save Job</button>
+                        <button class="btn btn-info" type="submit">Update Job</button>
                         <a href="{{ route('job-management.index') }}" class="btn btn-danger">Cancel</a>
                         <button class="btn btn-primary" type="reset">Reset</button>
                     </form>

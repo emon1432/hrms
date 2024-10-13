@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Job;
 use App\Models\JobCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
@@ -14,7 +15,9 @@ class JobController extends Controller
      */
     public function index()
     {
-        return view('backend.pages.organization.job-management.index');
+        $jobs = Job::where('created_by', auth()->user()->organization->id)->latest()->get();
+        // where('created_by', auth()->user()->id)->latest()->get()
+        return view('backend.pages.organization.job-management.index' , compact('jobs'));
     }
 
     /**
@@ -53,6 +56,7 @@ class JobController extends Controller
         }
         $request->merge([
             'organization_id' => auth()->user()->organization->id,
+            'created_by' => auth()->user()->organization->id,
             'job_category_id' => $request->category_name,
             'slug' => slugify($request->title),
         ]);
@@ -79,7 +83,8 @@ class JobController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $job_categories = JobCategory::where('status', 1)->get();
+        return view('backend.pages.organization.job-management.edit', compact('job_categories'));
     }
 
     /**

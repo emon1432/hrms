@@ -24,6 +24,9 @@ class Job extends Model
         'status',
         'slug',
         'description',
+        'created_by',
+        'updated_by',
+        'view_count',
     ];
 
 
@@ -38,6 +41,11 @@ class Job extends Model
 
     }
 
+    //join with user table
+    public function createdBy()
+    {
+        return $this->belongsTo(Organization::class, 'created_by');
+    }
 
 
 }
