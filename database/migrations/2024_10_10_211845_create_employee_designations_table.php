@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('designation_name')->unique();
             $table->string('slug')->unique();
             $table->boolean('status')->default(0);
+            $table->integer('created_by')->unsigned()->nullable();
+            $table->integer('updated_by')->unsigned()->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

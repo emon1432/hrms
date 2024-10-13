@@ -8,7 +8,6 @@
     </div>
 @endsection
 @section('content')
-
     <div class="row">
         <div class="col-md-12">
             <div class="table-responsive">
@@ -36,17 +35,48 @@
                                 <td>{{ $designation->organization->name }}</td>
                                 <td>{{ $designation->status == '0' ? 'Unpublish' : 'Publish' }}</td>
                                 <td class="text-center">
-                                    <a href="{{ route('employee-designation.edit', $designation->id) }}" class="btn btn-primary">
+
+                                    @if ($designation->created_by == auth()->user()->organization->id)
+                                        <a href="{{ route('employee-designation.edit', $designation->id) }}"
+                                            class="btn btn-primary">
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                    @else
+                                        <a href="" class="btn btn-primary" disabled>
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                    @endif
+
+                                    {{-- (auth()->user()->role == 'organization' && $blog->status == 1 && $blog->created_by ==
+                                    auth()->user()->id)
+                                    <a href="{{ route('employee-designation.edit', $designation->id) }}"
+                                        class="btn btn-primary">
                                         <i class="fa fa-pencil"></i>
-                                    </a>
-                                    
+                                        @elseif
+                                        <a href="" class="btn btn-primary" disabled>
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                        <form action="{{ route('employee-designation.destroy', $designation->id) }}"
+                                            method="POST" style="display: inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger" type="submit">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </form> --}}
+
+
+
+
+
+
                                 </td>
                             </tr>
-                            @empty
+                        @empty
                             <tr>
                                 <td colspan="4" class="text-center">No Designation Found</td>
                             </tr>
-                            @endforelse
+                        @endforelse
                     </tbody>
                 </table>
             </div>

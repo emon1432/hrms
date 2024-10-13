@@ -83,8 +83,9 @@ class JobController extends Controller
      */
     public function edit(string $id)
     {
+        $jobs = Job::with('createdBy', 'updatedBy')->where('created_by', auth()->user()->organization->id)->findOrFail($id);
         $job_categories = JobCategory::where('status', 1)->get();
-        return view('backend.pages.organization.job-management.edit', compact('job_categories'));
+        return view('backend.pages.organization.job-management.edit', compact('job_categories','jobs'));
     }
 
     /**

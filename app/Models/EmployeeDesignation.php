@@ -16,6 +16,8 @@ class EmployeeDesignation extends Model
         'slug',
         'status',
         'image',
+        'created_by',
+        'updated_by',
     ];
 
 
