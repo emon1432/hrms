@@ -26,7 +26,7 @@
 
                             <div class="col-md-4 mb-3">
                                 <label for="profile">Category Image (PNG)<span class="text-danger">*</span></label>
-                                <input type="file" class="form-control" id="profile" required="" accept="image/*"
+                                <input type="file" class="form-control" id="profile" required="" accept="image"
                                     name="profile"
                                     onchange="document.getElementById('profile_preview').src = window.URL.createObjectURL(this.files[0])">
                             </div>
