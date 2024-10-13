@@ -81,7 +81,7 @@ class DesignationController extends Controller
         //     return redirect()->route('employee-designation.index');
         // }
 
-        $designations = EmployeeDesignation::findOrFail($id);
+        $designations = EmployeeDesignation::where('created_by', auth()->user()->organization->id)->findOrFail($id);
         $categories = JobCategory::where('status', 1)->get();
         
         return view('backend.pages.organization.employee-designation.edit', compact('designations', 'categories'));
