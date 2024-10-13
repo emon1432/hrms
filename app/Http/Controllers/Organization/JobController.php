@@ -56,8 +56,8 @@ class JobController extends Controller
         }
         $request->merge([
             'organization_id' => auth()->user()->organization->id,
-            'created_by' => auth()->user()->organization->id,
             'job_category_id' => $request->category_name,
+            'created_by' => auth()->user()->organization->id,
             'slug' => slugify($request->title),
         ]);
 
@@ -93,7 +93,35 @@ class JobController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $jobs = Job::findOrFail($id);
+        $validate = validator($request->all(), [
+            'title' => 'required',
+            'category_name' => 'required',
+            'location' => 'required',
+            'vacancy' => 'required',
+            'experience' => 'required',
+            'gender' => 'required',
+            'salary_from' => 'required',
+            'salary_to' => 'required',
+            'type' => 'required',
+            'status' => 'required',
+            'description' => 'required',
+        ]);
+
+        if ($validate->fails()) {
+            notify()->error($validate->errors()->first());
+            return back();
+        }
+        $request->merge([
+            'organization_id' => auth()->user()->organization->id,
+            'job_category_id' => $request->category_name,
+            'updated_by' => auth()->user()->organization->id,
+            'slug' => slugify($request->title),
+        ]);
+        $jobs->update($request->all());
+
+        notify()->success('Job updated successfully!');
+        return redirect()->route('job-management.index');
     }
 
     /**

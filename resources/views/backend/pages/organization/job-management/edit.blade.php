@@ -15,13 +15,14 @@
                     <h5 class="card-title mb-0">Edit Job</h5>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('job-management.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('job-management.update' , $jobs->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
                                 <label for="title">Job Title <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="title" placeholder="Enter title"
-                                    required="" name="title">
+                                    required="" name="title" value="{{ $jobs->title }}">
                             </div>
 
                             <div class="col-md-6 mb-3">
@@ -41,43 +42,43 @@
                             <div class="col-md-6 mb-3">
                                 <label for="location">Job Location <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="location" placeholder="Enter location"
-                                    required="" name="location">
+                                    required="" name="location" value="{{ $jobs->location }}">
                             </div>
 
                             <div class="col-md-6 mb-3">
                                 <label for="vacancy">Job Vacancies <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="vacancy" placeholder="Enter vacancy"
-                                    required="" name="vacancy">
+                                    required="" name="vacancy" value="{{ $jobs->vacancy }}">
                             </div>
 
                             <div class="col-md-6 mb-3">
                                 <label for="experience">Experiences <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="experience"
-                                    placeholder="Enter experience" required="" name="experience">
+                                    placeholder="Enter experience" required="" name="experience" value="{{ $jobs->experience }}">
                             </div>
 
                             <div class="col-md-6 mb-3">
                                 <label for="gender">Gender <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="gender" placeholder="Enter gender"
-                                    required="" name="gender">
+                                    required="" name="gender" value="{{ $jobs->gender }}">
                             </div>
 
                             <div class="col-md-3 mb-3">
                                 <label for="salary_from">Salary Start From <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="salary_from" placeholder="Enter amount"
-                                    required="" name="salary_from">
+                                    required="" name="salary_from" value="{{ $jobs->salary_from }}">
                             </div>
 
                             <div class="col-md-3 mb-3">
                                 <label for="salary_to">Salary To <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="salary_to" placeholder="Enter amount"
-                                    required="" name="salary_to">
+                                    required="" name="salary_to" value="{{ $jobs->salary_to }}">
                             </div>
 
                             <div class="col-md-6 mb-3">
                                 <label for="deadline">Deadline <span class="text-danger">*</span></label>
                                 <input type="date" class="form-control" id="deadline" placeholder="Enter vacancy"
-                                    required="" name="deadline">
+                                    required="" name="deadline" value="{{ $jobs->deadline }}">
                             </div>
 
                             <div class="col-md-6 mb-3">
@@ -111,7 +112,7 @@
                             <div class="col-md-12 mb-3">
                                 <label for="description">Job Description <span class="text-danger">*</span></label>
                                 <textarea class="form-control" id="description" placeholder="Enter Description" required=""
-                                    name="description"></textarea>
+                                    name="description">{{ $jobs->description }}"</textarea>
                             </div>
 
                         </div>

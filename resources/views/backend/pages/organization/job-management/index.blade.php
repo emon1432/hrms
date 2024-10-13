@@ -63,8 +63,10 @@
                                 <td>{{ $data->jobCategory->category_name }}</td>
                                 <td>{{ $data->created_at->format('Y-m-d') }}</td>
                                 <td>{{ $data->deadline }}</td>
-                                <td class="text-center">
-                                    <div class="dropdown action-label">
+                                <td class="text-center text-danger">
+                                    {{ $data->type }}
+
+                                    {{-- <div class="dropdown action-label">
                                         <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#"
                                             data-toggle="dropdown" aria-expanded="false">
                                             <i class="fa fa-dot-circle-o text-danger"></i> Full
@@ -88,10 +90,12 @@
                                                     class="fa fa-dot-circle-o text-warning"></i>
                                                 Other</a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </td>
-                                <td class="text-center">
-                                    <div class="dropdown action-label">
+                                <td class="text-center text-danger">
+                                    {{ $data->status }}
+
+                                    {{-- <div class="dropdown action-label">
                                         <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#"
                                             data-toggle="dropdown" aria-expanded="false">
                                             <i class="fa fa-dot-circle-o text-danger"></i> Open
@@ -107,10 +111,10 @@
                                                     class="fa fa-dot-circle-o text-danger"></i>
                                                 Cancelled</a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </td>
                                 <td>
-                                    <a href="job-applicants.html" class="btn btn-sm btn-primary">3 Candidates</a>
+                                    <a href="" class="btn btn-sm btn-primary">3 Candidates</a>
                                 </td>
                                 <td class="text-center">
                                     <a href="{{ route('job-management.edit', $data->id) }}" class="btn btn-primary">
