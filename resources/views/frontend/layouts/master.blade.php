@@ -28,7 +28,7 @@
     @stack('styles')
 </head>
 
-<body class="bg-wight">
+<body class="">
     <div class="eg-preloder">
     </div>
     @include('frontend.layouts.includes.header')
