@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\JobCategory;
 use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
@@ -19,7 +20,8 @@ class WebsiteController extends Controller
 
     public function categories()
     {
-        return view('frontend.pages.categories.index');
+        $categories = JobCategory::where('status', 1)->get();
+        return view('frontend.pages.categories.index', compact('categories'));
     }
 
     public function companies()
