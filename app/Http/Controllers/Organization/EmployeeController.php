@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Organization;
 
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
+use App\Models\EmployeeDesignation;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,8 @@ class EmployeeController extends Controller
 
     public function create()
     {
-        return view('backend.pages.organization.employees.create');
+        $designations = EmployeeDesignation::where('status', 1)->get();
+        return view('backend.pages.organization.employees.create', compact('designations'));
     }
 
     public function store(Request $request)
@@ -27,6 +29,9 @@ class EmployeeController extends Controller
             'last_name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email|unique:employees,email',
             'phone' => 'required|string',
+            'join_date' => 'required',
+            'salary' => 'required',
+            'designation' => 'required',
             'password' => 'required|string|min:8',
             'profile' => 'nullable|image|max:2048',
         ]);
@@ -39,6 +44,7 @@ class EmployeeController extends Controller
             'role' => 'employee',
             'organization_id' => auth()->user()->organization->id,
             'password' => bcrypt($request->password),
+            'created_by' => auth()->user()->organization->id,
             'image' => imageUploadManager($request->profile, slugify($request->first_name . ' ' . $request->last_name), 'users', 200, 200),
         ]);
         $user = User::create($request->all());

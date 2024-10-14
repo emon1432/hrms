@@ -35,18 +35,26 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="designation">Designation <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="designation" placeholder="Enter your designation"
-                                    required="" name="">
+                                <div class="form-group form-focus select-focus">
+                                    <select class="select floating" name="designation">
+                                        <option value="" disabled selected>Select Designation</option>
+                                        @foreach ($designations as $designation)
+                                            <option value="{{ $designation->id }}">
+                                                {{ $designation->designation_name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="join_date">Join Date <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="join_date" placeholder="Enter your join date"
-                                    required="" name="">
+                                <input type="date" class="form-control" id="join_date" placeholder="Enter your join date"
+                                    required="" name="join_date">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="salary">Salary <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="salary" placeholder="Enter your salary"
-                                    required="" name="">
+                                    required="" name="salary">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="email">Email <span class="text-danger">*</span></label>

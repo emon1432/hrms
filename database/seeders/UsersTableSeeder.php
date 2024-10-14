@@ -83,6 +83,22 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2024-10-10 11:24:41',
                 'updated_at' => '2024-10-10 11:24:41',
             ),
+            4 => 
+            array (
+                'id' => 5,
+                'role' => 'employee',
+                'email' => 'teamjonymartin@gmail.com',
+                'status' => 1,
+                'email_verified_at' => NULL,
+                'password' => '$2y$12$yaJQOpKmrfpFSr16jznw8ujKDLafxof5oQ9oTO4GoJCMsWDCaG.U.',
+                'two_factor_secret' => NULL,
+                'two_factor_recovery_codes' => NULL,
+                'two_factor_confirmed_at' => NULL,
+                'remember_token' => NULL,
+                'current_team_id' => NULL,
+                'created_at' => '2024-10-14 03:27:44',
+                'updated_at' => '2024-10-14 03:27:44',
+            ),
         ));
         
         

@@ -17,5 +17,18 @@ class Employee extends Model
         'email',
         'phone',
         'image',
+        'salary',
+        'designation',
+        'join_date',
+        'created_by',
+        'updated_by',
+        'view_count',
     ];
+
+    public function employeeDesignation()
+    {
+        return $this->belongsTo(EmployeeDesignation::class);
+    }
+
+
 }

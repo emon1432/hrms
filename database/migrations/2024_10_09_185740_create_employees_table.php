@@ -15,12 +15,19 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('organization_id')->constrained()->onDelete('cascade');
+            $table->string('designation');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email');
             $table->string('phone');
+            $table->date('join_date');
+            $table->string('salary');
             $table->string('image')->nullable();
+            $table->integer('created_by')->unsigned()->nullable();
+            $table->integer('updated_by')->unsigned()->nullable();
+            $table->integer('view_count')->default(0);
             $table->timestamps();
+
         });
     }
 

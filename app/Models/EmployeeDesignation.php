@@ -31,6 +31,11 @@ class EmployeeDesignation extends Model
         return $this->belongsTo(Organization::class);
     }
 
+    public function employee()
+    {
+        return $this->hasMany(Employee::class);
+    }
+
     public function createdBy()
     {
         return $this->belongsTo(Organization::class, 'created_by');

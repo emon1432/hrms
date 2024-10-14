@@ -62,14 +62,13 @@
                                         </a>
                                         <a href="">
                                             {{ $employee->first_name }} {{ $employee->last_name }}
-                                            <span>Web Designer</span>
                                         </a>
                                     </h2>
                                 </td>
-                                <td></td>
-                                <td></td>
+                                <td>{{ $employee->designation }}</td>
+                                <td>{{ $employee->salary }}</td>
                                 <td>{{ $employee->phone }}</td>
-                                <td></td>
+                                <td>{{ $employee->join_date }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('employees.edit', $employee->id) }}" class="btn btn-primary">
                                         <i class="fa fa-pencil"></i>
