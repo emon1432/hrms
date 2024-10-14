@@ -9,12 +9,13 @@
     </a>
     <ul style="display: none;">
         <li>
-            <a class="active" href="{{ route('employees.index') }}">
+            <a class="{{ Request::is('employees*') ? 'active' : '' }}" href="{{ route('employees.index') }}">
                 All Employees
             </a>
         </li>
         <li>
-            <a class="active" href="{{ route('employee-designation.index') }}">
+            <a class="{{ Request::is('designations*') ? 'active' : '' }}"
+                href="{{ route('designations.index') }}">
                 Designation
             </a>
         </li>
@@ -29,12 +30,12 @@
     </a>
     <ul style="display: none;">
         <li>
-            <a class="active" href="{{ route('job-management.index') }}">
+            <a class="{{ Request::is('job-management*') ? 'active' : '' }}" href="{{ route('job-management.index') }}">
                 Job Management
             </a>
         </li>
         <li>
-            <a class="active" href="{{ route('job-category.index') }}">
+            <a class="{{ Request::is('category*') ? 'active' : '' }}" href="{{ route('category.index') }}">
                 Job Category
             </a>
         </li>

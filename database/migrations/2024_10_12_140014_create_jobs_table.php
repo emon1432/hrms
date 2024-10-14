@@ -13,22 +13,21 @@ return new class extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('organization_id')->constrained()->onDelete('cascade');
-            $table->foreignId('job_category_id')->constrained()->onDelete('cascade');
             $table->string('title');
-            $table->string('location');
-            $table->string('vacancy');
+            $table->string('slug');
+            $table->foreignId('organization_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->foreignId('designation_id')->constrained()->onDelete('cascade');
+            $table->string('location')->nullable();
+            $table->string('vacancy')->nullable();
             $table->string('experience')->nullable();
             $table->string('gender')->nullable();
-            $table->string('salary_from');
-            $table->string('salary_to');
-            $table->date('deadline');
+            $table->decimal('salary_from', 10, 2)->nullable();
+            $table->decimal('salary_to', 10, 2)->nullable();
+            $table->date('deadline')->nullable();
             $table->enum('type', ['Full Time', 'Part Time', 'Internship', 'Temporary', 'Other']);
             $table->enum('status', ['Open', 'Closed', 'Cancelled']);
             $table->longText('description')->nullable();
-            $table->string('slug');
-            $table->integer('created_by')->unsigned()->nullable();
-            $table->integer('updated_by')->unsigned()->nullable();
             $table->integer('view_count')->default(0);
             $table->timestamps();
         });

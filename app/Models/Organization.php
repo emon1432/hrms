@@ -9,40 +9,5 @@ class Organization extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'user_id',
-        'name',
-        'slug',
-        'type',
-        'email',
-        'phone',
-    ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    public function employees()
-    {
-        return $this->hasMany(Employee::class);
-    }
-
-    public function jobCategory()
-    {
-        return $this->hasMany(JobCategory::class);
-
-    }
-
-    public function employeeDesignation()
-    {
-        return $this->hasMany(EmployeeDesignation::class);
-    }
-
-    public function job()
-    {
-        return $this->hasMany(Job::class);
-
-    }
-
+    protected $fillable = [];
 }
