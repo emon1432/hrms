@@ -15,6 +15,8 @@ class JobCategory extends Model
         'slug',
         'status',
         'image',
+        'created_by',
+        'updated_by',
     ];
 
     public function organization()
@@ -32,6 +34,17 @@ class JobCategory extends Model
     {
         return $this->hasMany(Job::class);
     }
+
+    public function createdBy()
+    {
+        return $this->belongsTo(Organization::class, 'created_by');
+    }
+
+    public function updatedBy()
+    {
+        return $this->belongsTo(Organization::class, 'updated_by');
+    }
+
 
 }
 

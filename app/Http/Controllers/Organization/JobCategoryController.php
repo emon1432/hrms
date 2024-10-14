@@ -43,6 +43,7 @@ class JobCategoryController extends Controller
         $request->merge([
             'organization_id' => auth()->user()->organization->id,
             'image' => imageUploadManager($request->profile, slugify($request->category_name), 'job_category', 40, 40),
+            'created_by' => auth()->user()->organization->id,
             'slug' => slugify($request->category_name),
         ]);
         JobCategory::create($request->all());
@@ -65,7 +66,7 @@ class JobCategoryController extends Controller
      */
     public function edit(string $id)
     {
-        $job_category = JobCategory::findOrFail($id);
+        $job_category = JobCategory::where('created_by', auth()->user()->organization->id)->findOrFail($id);
 
         return view('backend.pages.organization.job-category.edit', compact('job_category'));
     }
@@ -89,6 +90,7 @@ class JobCategoryController extends Controller
         $request->merge([
             'organization_id' => auth()->user()->organization->id,
             'image' => imageUploadManager($request->profile, slugify($request->category_name), 'job_category', 40, 40),
+            'updated_by' => auth()->user()->organization->id,
             'slug' => slugify($request->category_name),
         ]);
         $job_category->update($request->all());

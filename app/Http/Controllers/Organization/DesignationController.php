@@ -94,9 +94,9 @@ class DesignationController extends Controller
     {
         $designations = EmployeeDesignation::findOrFail($id);
         $validate = validator($request->all(), [
-            'designation_name' => 'required|unique:employee_designations,designation_name',
+            'designation_name' => 'required',
             'category_name' => 'required',
-            'slug' => 'unique:employee_designations,slug',
+            // 'slug' => 'unique:employee_designations,slug',
         ]);
 
         if ($validate->fails()) {

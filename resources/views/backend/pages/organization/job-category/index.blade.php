@@ -56,7 +56,8 @@
                                 <td>
                                     <h2 class="table-avatar">
                                         <a href="{{ $category->category_name }}" class="avatar">
-                                            <img alt="{{ $category->category_name }}" src="{{ imageShow($category->image) }}">
+                                            <img alt="{{ $category->category_name }}"
+                                                src="{{ imageShow($category->image) }}">
                                         </a>
                                         <a href="">
                                             {{ $category->category_name }}
@@ -66,9 +67,16 @@
                                 <td>{{ $category->organization->name }}</td>
                                 <td>{{ $category->status == '0' ? 'Unpublish' : 'Publish' }}</td>
                                 <td class="text-center">
-                                    <a href="{{ route('job-category.edit', $category->id) }}" class="btn btn-primary">
-                                        <i class="fa fa-pencil"></i>
-                                    </a>
+
+                                    @if ($category->created_by == auth()->user()->organization->id)
+                                        <a href="{{ route('job-category.edit', $category->id) }}" class="btn btn-primary">
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                    @else
+                                        <a href="" class="btn btn-primary" disabled>
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                    @endif
 
                                 </td>
                             </tr>
