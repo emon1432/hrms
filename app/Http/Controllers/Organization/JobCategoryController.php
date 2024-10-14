@@ -33,7 +33,7 @@ class JobCategoryController extends Controller
         $validate = validator($request->all(), [
             'category_name' => 'required|unique:job_categories,category_name',
             'slug' => 'unique:job_categories,slug',
-            'profile' => 'required|image|max:2048',
+            'profile' => 'required|image|mimes:png|max:2048',
         ]);
 
         if ($validate->fails()) {
@@ -80,7 +80,7 @@ class JobCategoryController extends Controller
         $validate = validator($request->all(), [
             'category_name' => 'required',
             // 'slug' => 'unique:job_categories,slug',
-            'profile' => 'required|image|max:2048',
+            'profile' => 'required|image|mimes:png|max:2048',
         ]);
 
         if ($validate->fails()) {

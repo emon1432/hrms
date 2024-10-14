@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('created_by')->unsigned()->nullable();
             $table->integer('updated_by')->unsigned()->nullable();
             $table->string('image');
+            $table->integer('view_count')->default(0);
             $table->timestamps();
         });
     }

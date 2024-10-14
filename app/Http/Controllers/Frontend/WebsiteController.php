@@ -10,7 +10,8 @@ class WebsiteController extends Controller
 {
     public function index()
     {
-        return view('frontend.pages.home.index');
+        $job_categories = JobCategory::with('createdBy')->where('status', 1)->orderBy('view_count', 'asc')->take(10)->get();
+        return view('frontend.pages.home.index', compact('job_categories'));
     }
 
     public function contact()
