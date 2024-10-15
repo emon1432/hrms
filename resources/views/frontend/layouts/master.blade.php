@@ -48,9 +48,9 @@
     <script src="{{ asset('frontend') }}/js/viewport.jquery.js"></script>
     <script src="{{ asset('frontend') }}/js/jquery.nice-number.min.js"></script>
     <script src="{{ asset('frontend') }}/js/iziToast.js"></script>
-    <script src="{{ asset('frontend') }}/js/main.js"></script>
     @include('vendor.lara-izitoast.toast')
     @stack('scripts')
+    <script src="{{ asset('frontend') }}/js/main.js"></script>
 </body>
 
 

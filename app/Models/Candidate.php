@@ -9,11 +9,5 @@ class Candidate extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'user_id',
-        'first_name',
-        'last_name',
-        'email',
-        'phone',
-    ];
+    protected $guarded = [];
 }
