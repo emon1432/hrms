@@ -31,7 +31,7 @@
     </a>
     <ul style="display: none;">
         <li>
-            <a class="{{ Request::is('job-management*') ? 'active' : '' }}" href="{{ route('job-management.index') }}">
+            <a class="{{ Request::is('job*') ? 'active' : '' }}" href="{{ route('job.index') }}">
                 Jobs
             </a>
         </li>

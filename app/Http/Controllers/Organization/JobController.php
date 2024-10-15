@@ -4,131 +4,106 @@ namespace App\Http\Controllers\Organization;
 
 use App\Http\Controllers\Controller;
 use App\Models\Job;
-use App\Models\JobCategory;
+use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $jobs = Job::where('created_by', auth()->user()->organization->id)->latest()->get();
-        
-        return view('backend.pages.organization.job-management.index' , compact('jobs'));
+        $jobs = auth()->user()->organization->jobs;
+        return view('backend.pages.organization.jobs.index', compact('jobs'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        $job_categories = JobCategory::where('status', 1)->get();
-        return view('backend.pages.organization.job-management.create', compact('job_categories'));
+        $categories = Category::orderBy('name')->get();
+        return view('backend.pages.organization.jobs.create', compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
+        $request->merge([
+            'organization_id' => auth()->user()->organization->id,
+            'slug' => slugify($request->title),
+        ]);
         $validate = validator($request->all(), [
-            'title' => 'required',
-            'category_name' => 'required',
-            'location' => 'required',
-            'vacancy' => 'required',
-            'experience' => 'required',
-            'gender' => 'required',
-            'salary_from' => 'required',
-            'salary_to' => 'required',
-            'type' => 'required',
-            'status' => 'required',
-            'description' => 'required',
-            
-            
+            'title' => 'required|string',
+            'slug' => 'required|string',
+            'organization_id' => 'required|integer|exists:organizations,id',
+            'category_id' => 'required|integer|exists:categories,id',
+            'location' => 'required|string',
+            'vacancy' => 'required|string',
+            'experience' => 'required|string',
+            'gender' => 'required|string|in:Male,Female,Both',
+            'salary_from' => 'nullable|numeric|min:0',
+            'salary_to' => 'nullable|numeric|min:0|gte:salary_from',
+            'deadline' => 'nullable|date|after:today',
+            'type' => 'required|string|in:Full Time,Part Time,Internship,Temporary,Other',
+            'status' => 'required|string|in:Open,Closed,Cancelled',
+            'description' => 'nullable|string',
         ]);
 
         if ($validate->fails()) {
             notify()->error($validate->errors()->first());
             return back();
         }
-        $request->merge([
-            'organization_id' => auth()->user()->organization->id,
-            'job_category_id' => $request->category_name,
-            'created_by' => auth()->user()->organization->id,
-            'slug' => slugify($request->title),
-        ]);
-
-        // return response()->json($request);
-
         Job::create($request->all());
-        
-
         notify()->success('Job created successfully!');
-        return redirect()->route('job-management.index');
+        return redirect()->route('job.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        $jobs = Job::with('createdBy', 'updatedBy')->where('created_by', auth()->user()->organization->id)->findOrFail($id);
-        $job_categories = JobCategory::where('status', 1)->get();
-        return view('backend.pages.organization.job-management.edit', compact('job_categories','jobs'));
+        $job = auth()->user()->organization->jobs()->findOrFail($id);
+        $categories = Category::orderBy('name')->get();
+        return view('backend.pages.organization.jobs.edit', compact('categories', 'job'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        $jobs = Job::findOrFail($id);
+        $job = auth()->user()->organization->jobs()->findOrFail($id);
+        $request->merge([
+            'organization_id' => auth()->user()->organization->id,
+            'slug' => slugify($request->title),
+        ]);
         $validate = validator($request->all(), [
-            'title' => 'required',
-            'category_name' => 'required',
-            'location' => 'required',
-            'vacancy' => 'required',
-            'experience' => 'required',
-            'gender' => 'required',
-            'salary_from' => 'required',
-            'salary_to' => 'required',
-            'type' => 'required',
-            'status' => 'required',
-            'description' => 'required',
+            'title' => 'required|string',
+            'slug' => 'required|string',
+            'organization_id' => 'required|integer|exists:organizations,id',
+            'category_id' => 'required|integer|exists:categories,id',
+            'location' => 'required|string',
+            'vacancy' => 'required|string',
+            'experience' => 'required|string',
+            'gender' => 'required|string|in:Male,Female,Both',
+            'salary_from' => 'nullable|numeric|min:0',
+            'salary_to' => 'nullable|numeric|min:0|gte:salary_from',
+            'deadline' => 'nullable|date|after:today',
+            'type' => 'required|string|in:Full Time,Part Time,Internship,Temporary,Other',
+            'status' => 'required|string|in:Open,Closed,Cancelled',
+            'description' => 'nullable|string',
         ]);
 
         if ($validate->fails()) {
             notify()->error($validate->errors()->first());
             return back();
         }
-        $request->merge([
-            'organization_id' => auth()->user()->organization->id,
-            'job_category_id' => $request->category_name,
-            'updated_by' => auth()->user()->organization->id,
-            'slug' => slugify($request->title),
-        ]);
-        $jobs->update($request->all());
+        $job->update($request->all());
 
         notify()->success('Job updated successfully!');
-        return redirect()->route('job-management.index');
+        return redirect()->route('job.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        $job = auth()->user()->organization->jobs()->findOrFail($id);
+        $job->delete();
+        notify()->success('Job deleted successfully!');
+        return redirect()->route('job.index');
     }
 }

@@ -20,7 +20,7 @@
     <link href="{{ asset('backend') }}/plugins/morris/morris.css" rel="stylesheet">
     <link href="{{ asset('backend') }}/plugins/iziToast/css/iziToast.css" rel="stylesheet">
     <link href="{{ asset('backend') }}/css/style.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
+    @stack('styles')
 
 </head>
 
@@ -50,10 +50,7 @@
     <script src="{{ asset('backend') }}/js/chart.js"></script>
     <script src="{{ asset('backend') }}/js/app.js"></script>
     @include('vendor.lara-izitoast.toast')
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
-    @stack('backend-js')
-
-
+    @stack('scripts')
 </body>
 
 </html>

@@ -14,5 +14,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::resource('designations', DesignationController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('employees', EmployeeController::class);
-    Route::resource('job-management', JobController::class);
+    Route::resource('job', JobController::class);
 });

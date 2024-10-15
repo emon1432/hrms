@@ -63,6 +63,6 @@ class DesignationController extends Controller
     {
         Designation::find($id)->delete();
         notify()->success('Designation deleted successfully!');
-        return back();
+        return redirect()->route('designations.index');
     }
 }

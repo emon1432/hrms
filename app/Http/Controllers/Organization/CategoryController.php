@@ -78,6 +78,6 @@ class CategoryController extends Controller
         imageDeleteManager($category->image);
         $category->delete();
         notify()->success('Category deleted successfully!');
-        return back();
+        return redirect()->route('category.index');
     }
 }
