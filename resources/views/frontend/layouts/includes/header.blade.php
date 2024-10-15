@@ -89,7 +89,7 @@
                             <div class="btn-group dropdown">
                                 <div class="notifications-area dropdown-toggle" role="button" id="dropdownMenuButton3"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img class="user-icon" src="{{ asset('frontend') }}/images/bg/user-img.png" alt>
+                                    <img class="user-icon rounded-circle" src="{{ asset('frontend') }}/images/bg/user-img.png" alt>
                                 </div>
                                 <div class="user-card dropdown-menu" aria-labelledby="dropdownMenuButton3">
                                     <ul>

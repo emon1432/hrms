@@ -46,7 +46,7 @@ class UsersTableSeeder extends Seeder
                 'two_factor_secret' => NULL,
                 'two_factor_recovery_codes' => NULL,
                 'two_factor_confirmed_at' => NULL,
-                'remember_token' => 'o3LTwsrN5jvcHO7JhigRzvflJmcglb4bDJuY49u9KPD0kfzomkDBlddhh7m3',
+                'remember_token' => 'Waq0bY3KvHh2uRq2qiK0UZHdHxADbrLSWfmTwkwDyy8eE0ybfVpZLV4tlIuj',
                 'current_team_id' => NULL,
                 'created_at' => '2024-10-10 08:44:04',
                 'updated_at' => '2024-10-10 08:44:04',
@@ -98,6 +98,22 @@ class UsersTableSeeder extends Seeder
                 'current_team_id' => NULL,
                 'created_at' => '2024-10-14 03:27:44',
                 'updated_at' => '2024-10-14 03:27:44',
+            ),
+            5 => 
+            array (
+                'id' => 6,
+                'role' => 'employee',
+                'email' => 'jony@hrms.com',
+                'status' => 1,
+                'email_verified_at' => NULL,
+                'password' => '$2y$12$2ezu6FIzmxC27yU3WkmG/.bbJQdM6rYXe.cTBe6cbVrrDZfYEv9oa',
+                'two_factor_secret' => NULL,
+                'two_factor_recovery_codes' => NULL,
+                'two_factor_confirmed_at' => NULL,
+                'remember_token' => NULL,
+                'current_team_id' => NULL,
+                'created_at' => '2024-10-15 07:05:59',
+                'updated_at' => '2024-10-15 07:05:59',
             ),
         ));
         

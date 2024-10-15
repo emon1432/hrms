@@ -19,6 +19,12 @@
                     @include('backend.layouts.includes.sidebar.employee')
                 @endif
 
+                <li class="submenu">
+                    <a href="{{ route('home.index') }}" target="_blank">
+                        <i class="la la-external-link-square"></i>
+                        <span>Visit Website</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
