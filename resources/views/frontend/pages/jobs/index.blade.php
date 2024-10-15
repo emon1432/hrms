@@ -23,7 +23,7 @@
     <div class="job-listing-area pt-120 mb-120">
         <div class="container">
             <div class="row g-lg-4 gy-5">
-                <div class="col-lg-4 order-lg-1 order-2">
+                {{-- <div class="col-lg-4 order-lg-1 order-2">
                     <div class="job-sidebar">
                         <div class="job-widget style-1 mb-20">
                             <div class="check-box-item">
@@ -339,8 +339,8 @@
                             <a class="primary-btn-2 lg-btn text-center" href="#">Go to Job Alert</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-8 order-lg-2 order-1">
+                </div> --}}
+                <div class="col-lg-12 order-lg-2 order-1">
                     <div class="job-listing-wrrap">
                         <div class="row g-4 mb-25">
                             <div class="col-lg-6 d-flex align-items-center">
@@ -396,331 +396,74 @@
                             </div>
                         </div>
                         <div class="row ">
-                            <div class="col-lg-12 mb-30">
-                                <div class="job-listing-card">
-                                    <div class="job-top">
-                                        <div class="job-list-content">
-                                            <div class="company-area">
-                                                <div class="logo">
-                                                    <img src="{{ asset('frontend') }}/images/bg/company-logo/company-01.png"
-                                                        alt>
-                                                </div>
-                                                <div class="company-details">
-                                                    <div class="name-location">
-                                                        <h5><a href="{{ route('jobs.show', 1) }}">Senior Receptionist</a></h5>
-                                                        <p><a href="{{ route('companies.show',1) }}">Medico.co Ltd</a></p>
+                            @forelse ($jobs as $key =>$job)
+                                <div class="col-lg-12 mb-30">
+                                    <div class="job-listing-card">
+                                        <div class="job-top">
+                                            <div class="job-list-content">
+                                                <div class="company-area">
+                                                    <div class="logo">
+                                                        <img src="{{ imageShow($job->organization->image) }}"
+                                                            alt="{{ $job->organization->name }}">
+                                                    </div>
+                                                    <div class="company-details">
+                                                        <div class="name-location">
+                                                            <h5>
+                                                                <a href="{{ route('jobs.show', $job->slug) }}">
+                                                                    {{ $job->title }}
+                                                                </a>
+                                                            </h5>
+                                                            <p>
+                                                                <a href="{{ route('companies.show', 1) }}">Medico.co Ltd</a>
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                <div class="job-discription">
+                                                    <ul>
+                                                        <li>
+                                                            <p>
+                                                                <span class="title">Salary:</span>
+                                                                ${{ $job->salary_from }} - ${{ $job->salary_to }}/
+                                                                <span class="time">Per Month</span>
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p>
+                                                                <span class="title">Deadline:</span>
+                                                                {{ Carbon\Carbon::parse($job->deadline)->format('d M, Y') }}
+                                                            </p>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                            <div class="job-discription">
-                                                <ul>
-                                                    <li>
-                                                        <p><span class="title">Salary:</span> $20K-$50K / <span
-                                                                class="time">Per Month</span></p>
-                                                    </li>
-                                                    <li>
-                                                        <p><span class="title">Deadline:</span> 05 April, 2023</p>
-                                                    </li>
-                                                </ul>
+                                            <div class="bookmark">
+                                                <i class="bi bi-bookmark-fill"></i>
                                             </div>
                                         </div>
-                                        <div class="bookmark">
-                                            <i class="bi bi-bookmark-fill"></i>
-                                        </div>
-                                    </div>
-                                    <div class="job-type-apply">
-                                        <div class="job-type">
-                                            <span class="light-green">Full Time</span>
-                                            <span class="light-purple">Part Time</span>
-                                            <span class="light-blue">Remote</span>
-                                        </div>
-                                        <div class="apply-btn">
-                                            <a href="{{ route('jobs.show', 1) }}"><span><img
-                                                        src="{{ asset('frontend') }}/images/icon/apply-ellipse.svg"
-                                                        alt></span>Apply
-                                                Now</a>
+                                        <div class="job-type-apply">
+                                            <div class="job-type">
+                                                <span class="light-blue">{{ $job->type }}</span>
+                                            </div>
+                                            <div class="apply-btn">
+                                                <a href="{{ route('jobs.show', $job->slug) }}">
+                                                    <span>
+                                                        <img src="{{ asset('frontend') }}/images/icon/apply-ellipse.svg"
+                                                            alt>
+                                                    </span>
+                                                    Apply Now
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-12 mb-30">
-                                <div class="job-listing-card">
-                                    <div class="job-top">
-                                        <div class="job-list-content">
-                                            <div class="company-area">
-                                                <div class="logo">
-                                                    <img src="{{ asset('frontend') }}/images/bg/company-logo/company-02.png"
-                                                        alt>
-                                                </div>
-                                                <div class="company-details">
-                                                    <div class="name-location">
-                                                        <h5><a href="{{ route('jobs.show', 1) }}">Senior PHP Developer</a></h5>
-                                                        <p><a href="{{ route('companies.show',1) }}">Marko Land Conpany</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="job-discription">
-                                                <ul>
-                                                    <li>
-                                                        <p><span class="title">Salary:</span> $50K-$70K / <span
-                                                                class="time">Per Month</span></p>
-                                                    </li>
-                                                    <li>
-                                                        <p><span class="title">Deadline:</span> 05 April, 2023</p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="bookmark">
-                                            <i class="bi bi-bookmark-fill"></i>
-                                        </div>
-                                    </div>
-                                    <div class="job-type-apply">
-                                        <div class="job-type">
-                                            <span class="light-green">Full Time</span>
-                                            <span class="light-purple">Part Time</span>
-                                        </div>
-                                        <div class="apply-btn">
-                                            <a href="{{ route('jobs.show', 1) }}"><span><img
-                                                        src="{{ asset('frontend') }}/images/icon/apply-ellipse.svg"
-                                                        alt></span>Apply
-                                                Now</a>
-                                        </div>
+                            @empty
+                                <div class="col-lg-12 mb-30">
+                                    <div class="job-listing-card">
+                                        <h5 class="text-center">No Job Found</h5>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-12 mb-30">
-                                <div class="job-listing-card">
-                                    <div class="job-top">
-                                        <div class="job-list-content">
-                                            <div class="company-area">
-                                                <div class="logo">
-                                                    <img src="{{ asset('frontend') }}/images/bg/company-logo/company-04.png"
-                                                        alt>
-                                                </div>
-                                                <div class="company-details">
-                                                    <div class="name-location">
-                                                        <h5><a href="{{ route('jobs.show', 1) }}">Junior React Developer</a></h5>
-                                                        <p><a href="{{ route('companies.show',1) }}">UI.UX Company</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="job-discription">
-                                                <ul>
-                                                    <li>
-                                                        <p><span class="title">Salary:</span> $30K-$50K / <span
-                                                                class="time">Per Month</span></p>
-                                                    </li>
-                                                    <li>
-                                                        <p><span class="title">Deadline:</span> 06 April, 2023</p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="bookmark">
-                                            <i class="bi bi-bookmark-fill"></i>
-                                        </div>
-                                    </div>
-                                    <div class="job-type-apply">
-                                        <div class="job-type">
-                                            <span class="light-purple">Part Time</span>
-                                            <span class="light-blue">Remote</span>
-                                        </div>
-                                        <div class="apply-btn">
-                                            <a href="{{ route('jobs.show', 1) }}"><span><img
-                                                        src="{{ asset('frontend') }}/images/icon/apply-ellipse.svg"
-                                                        alt></span>Apply
-                                                Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 mb-30">
-                                <div class="job-listing-card">
-                                    <div class="job-top">
-                                        <div class="job-list-content">
-                                            <div class="company-area">
-                                                <div class="logo">
-                                                    <img src="{{ asset('frontend') }}/images/bg/company-logo/company-05.png"
-                                                        alt>
-                                                </div>
-                                                <div class="company-details">
-                                                    <div class="name-location">
-                                                        <h5><a href="{{ route('jobs.show', 1) }}">Senior React Developer</a></h5>
-                                                        <p><a href="{{ route('companies.show',1) }}">UI.UX Company</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="job-discription">
-                                                <ul>
-                                                    <li>
-                                                        <p><span class="title">Salary:</span> $20-$50 / <span
-                                                                class="time">Per Hour</span></p>
-                                                    </li>
-                                                    <li>
-                                                        <p><span class="title">Deadline:</span> 06 April, 2023</p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="bookmark">
-                                            <i class="bi bi-bookmark-fill"></i>
-                                        </div>
-                                    </div>
-                                    <div class="job-type-apply">
-                                        <div class="job-type">
-                                            <span class="light-purple">Part Time</span>
-                                            <span class="light-blue">Remote</span>
-                                        </div>
-                                        <div class="apply-btn">
-                                            <a href="{{ route('jobs.show', 1) }}"><span><img
-                                                        src="{{ asset('frontend') }}/images/icon/apply-ellipse.svg"
-                                                        alt></span>Apply
-                                                Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 mb-30">
-                                <div class="job-listing-card">
-                                    <div class="job-top">
-                                        <div class="job-list-content">
-                                            <div class="company-area">
-                                                <div class="logo">
-                                                    <img src="{{ asset('frontend') }}/images/bg/company-logo/company-04.png"
-                                                        alt>
-                                                </div>
-                                                <div class="company-details">
-                                                    <div class="name-location">
-                                                        <h5><a href="{{ route('jobs.show', 1) }}">Mern Stack Developer</a></h5>
-                                                        <p><a href="{{ route('companies.show',1) }}">Germain Group Ltd</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="job-discription">
-                                                <ul>
-                                                    <li>
-                                                        <p><span class="title">Salary:</span> $80K-$90K / <span
-                                                                class="time">Per Month</span></p>
-                                                    </li>
-                                                    <li>
-                                                        <p><span class="title">Deadline:</span> 07 April, 2023</p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="bookmark">
-                                            <i class="bi bi-bookmark-fill"></i>
-                                        </div>
-                                    </div>
-                                    <div class="job-type-apply">
-                                        <div class="job-type">
-                                            <span class="light-green">Full Time</span>
-                                            <span class="light-purple">Part Time</span>
-                                            <span class="light-blue">Remote</span>
-                                        </div>
-                                        <div class="apply-btn">
-                                            <a href="{{ route('jobs.show', 1) }}"><span><img
-                                                        src="{{ asset('frontend') }}/images/icon/apply-ellipse.svg"
-                                                        alt></span>Apply
-                                                Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 mb-30">
-                                <div class="job-listing-card">
-                                    <div class="job-top">
-                                        <div class="job-list-content">
-                                            <div class="company-area">
-                                                <div class="logo">
-                                                    <img src="{{ asset('frontend') }}/images/bg/company-logo/company-04.png"
-                                                        alt>
-                                                </div>
-                                                <div class="company-details">
-                                                    <div class="name-location">
-                                                        <h5><a href="{{ route('jobs.show', 1) }}">Junior React Developer</a></h5>
-                                                        <p><a href="{{ route('companies.show',1) }}">UI.UX Company</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="job-discription">
-                                                <ul>
-                                                    <li>
-                                                        <p><span class="title">Salary:</span> $30K-$50K / <span
-                                                                class="time">Per Month</span></p>
-                                                    </li>
-                                                    <li>
-                                                        <p><span class="title">Deadline:</span> 06 April, 2023</p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="bookmark">
-                                            <i class="bi bi-bookmark-fill"></i>
-                                        </div>
-                                    </div>
-                                    <div class="job-type-apply">
-                                        <div class="job-type">
-                                            <span class="light-purple">Part Time</span>
-                                            <span class="light-blue">Remote</span>
-                                        </div>
-                                        <div class="apply-btn">
-                                            <a href="{{ route('jobs.show', 1) }}"><span><img
-                                                        src="{{ asset('frontend') }}/images/icon/apply-ellipse.svg"
-                                                        alt></span>Apply
-                                                Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 mb-70">
-                                <div class="job-listing-card">
-                                    <div class="job-top">
-                                        <div class="job-list-content">
-                                            <div class="company-area">
-                                                <div class="logo">
-                                                    <img src="{{ asset('frontend') }}/images/bg/company-logo/company-06.png"
-                                                        alt>
-                                                </div>
-                                                <div class="company-details">
-                                                    <div class="name-location">
-                                                        <h5><a href="{{ route('jobs.show', 1) }}">Junior React Developer</a></h5>
-                                                        <p><a href="{{ route('companies.show',1) }}">Bistro.Tech Ltd</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="job-discription">
-                                                <ul>
-                                                    <li>
-                                                        <p><span class="title">Salary:</span> $80K-$90K / <span
-                                                                class="time">Per Month</span></p>
-                                                    </li>
-                                                    <li>
-                                                        <p><span class="title">Deadline:</span> 08 April, 2023</p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="bookmark">
-                                            <i class="bi bi-bookmark-fill"></i>
-                                        </div>
-                                    </div>
-                                    <div class="job-type-apply">
-                                        <div class="job-type">
-                                            <span class="light-green">Full Time</span>
-                                            <span class="light-purple">Part Time</span>
-                                            <span class="light-blue">Remote</span>
-                                        </div>
-                                        <div class="apply-btn">
-                                            <a href="{{ route('jobs.show', 1) }}"><span><img
-                                                        src="{{ asset('frontend') }}/images/icon/apply-ellipse.svg"
-                                                        alt></span>Apply
-                                                Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforelse
                             <div class="col-lg-12 d-flex justify-content-center">
                                 <div class="pagination-area">
                                     <nav aria-label="...">

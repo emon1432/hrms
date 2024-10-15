@@ -31,34 +31,35 @@
                                 <div class="form-inner">
                                     <input type="text" placeholder="Search..">
                                     <button class="primary-btn-2" type="submit"><img
-                                            src="{{asset('frontend')}}/images/icon/search-category.svg" alt></button>
+                                            src="{{ asset('frontend') }}/images/icon/search-category.svg" alt></button>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div
                         class="row row-cols-xxl-5 row-cols-xl-4 row-cols-md-3 row-cols-sm-2 row-cols-1 g-3 cf justify-content-center mb-70">
-                        @foreach ( $categories as $data)
-                            
-                        <div class="col">
-                            <div class="single-category">
-                                <div class="category-top">
-                                    <div class="icon">
-                                        <img src="{{ imageShow($data->image) }}" alt>
+                        @foreach ($categories as $key => $category)
+                            <div class="col">
+                                <div class="single-category">
+                                    <div class="category-top">
+                                        <div class="icon">
+                                            <img src="{{ imageShow($category->image) }}" alt="{{ $category->name }}">
+                                        </div>
+                                        <div class="sl-no">
+                                            <h6>{{ $key + 1 }}</h6>
+                                        </div>
                                     </div>
-                                    <div class="sl-no">
-                                        <h6>01</h6>
+                                    <div class="category-content">
+                                        <h5>
+                                            <a href="{{ route('jobs.index', ['category' => $category->slug]) }}">
+                                                {{ $category->name }}
+                                            </a>
+                                        </h5>
+                                        <p>Job Available: <span>{{ $category->jobs->count() }}</span></p>
                                     </div>
-                                </div>
-                                <div class="category-content">
-                                    <h5><a href="{{ route('jobs.index') }}">{{ $data->category_name }}</a></h5>
-                                    <p>Job Available: <span>{{ $data->job()->count() }}</span></p>
                                 </div>
                             </div>
-                        </div>
-
                         @endforeach
-                        
                     </div>
                     <div class="row">
                         <div class="col-lg-12 d-flex justify-content-center">

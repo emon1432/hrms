@@ -3,15 +3,16 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\JobCategory;
+use App\Models\Category;
+use App\Models\Job;
 use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
 {
     public function index()
     {
-        $job_categories = JobCategory::with('createdBy')->where('status', 1)->orderBy('view_count', 'asc')->take(10)->get();
-        return view('frontend.pages.home.index', compact('job_categories'));
+        $categories = Category::orderBy('name')->get();
+        return view('frontend.pages.home.index', compact('categories'));
     }
 
     public function contact()
@@ -21,7 +22,7 @@ class WebsiteController extends Controller
 
     public function categories()
     {
-        $categories = JobCategory::where('status', 1)->get();
+        $categories = Category::orderBy('name')->get();
         return view('frontend.pages.categories.index', compact('categories'));
     }
 
@@ -37,12 +38,20 @@ class WebsiteController extends Controller
 
     public function jobs()
     {
-        return view('frontend.pages.jobs.index');
+        $jobs = Job::orderBy('id', 'desc')
+            ->when(request()->category, function ($query) {
+                return $query->whereHas('category', function ($query) {
+                    $query->where('slug', request()->category);
+                });
+            })
+            ->get();
+        return view('frontend.pages.jobs.index', compact('jobs'));
     }
 
     public function job($slug)
     {
-        return view('frontend.pages.jobs.show');
+        $job = Job::where('slug', $slug)->firstOrFail();
+        return view('frontend.pages.jobs.show', compact('job'));
     }
 
     public function blogs()

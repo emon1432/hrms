@@ -19,7 +19,6 @@
         </div>
     </div>
 
-
     <div class="job-details-pages pt-120 mb-120">
         <div class="container">
             <div class="row g-lg-4 gy-5">
@@ -28,96 +27,64 @@
                         <div class="job-list-content">
                             <div class="company-area">
                                 <div class="logo">
-                                    <img src="{{asset('frontend')}}/images/bg/company-logo/company-01.png" alt>
+                                    <img src="{{ imageShow($job->organization->image) }}"
+                                        alt="{{ $job->organization->name }}">
                                 </div>
                                 <div class="company-details">
                                     <div class="name-location">
-                                        <h5><a href="#">Senior UI/UX Engineer</a></h5>
-                                        <p>Bistro.Tech Group Ltd</p>
+                                        <h5>
+                                            <a href="javascript:void(0)">
+                                                {{ $job->title }}
+                                            </a>
+                                        </h5>
+                                        <p>{{ $job->organization->name }}</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="job-discription">
                                 <ul class="one">
                                     <li>
-                                        <img src="{{asset('frontend')}}/images/icon/map-2.svg" alt>
-                                        <p><span class="title">Location:</span> Dhaka, Bangladesh</p>
+                                        <img src="{{ asset('frontend') }}/images/icon/map-2.svg" alt>
+                                        <p><span class="title">Location:</span> {{ $job->location }}</p>
                                     </li>
                                     <li>
-                                        <img src="{{asset('frontend')}}/images/icon/category-2.svg" alt>
-                                        <p><span class="title">Category:</span> Creative Design</p>
+                                        <img src="{{ asset('frontend') }}/images/icon/category-2.svg" alt>
+                                        <p><span class="title">Category:</span> {{ $job->category->name }}</p>
                                     </li>
                                 </ul>
                                 <ul>
                                     <li>
-                                        <img src="{{asset('frontend')}}/images/icon/company-2.svg" alt>
-                                        <p><span class="title">Job Type:</span> Full-Time</p>
+                                        <img src="{{ asset('frontend') }}/images/icon/company-2.svg" alt>
+                                        <p><span class="title">Job Type:</span> {{ $job->type }}</p>
                                     </li>
                                     <li>
-                                        <img src="{{asset('frontend')}}/images/icon/salary-2.svg" alt>
-                                        <p><span class="title">Salary:</span> $40K-$78K/Per Month</p>
+                                        <img src="{{ asset('frontend') }}/images/icon/salary-2.svg" alt>
+                                        <p><span class="title">Salary:</span> ${{ $job->salary_from }}k -
+                                            ${{ $job->salary_to }}k/Per Month</p>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        <p><span>Job Description:</span> A UI/UX (User Interface/User Experience) designer is
-                            responsible for designing and creating engaging and effective interfaces for software and
-                            web applications. This includes designing the layout, visual design, and interactivity of
-                            the user interface.</p>
-                        <br>
-                        <p><span>Job Responsibility:</span> Collaborating with cross-functional teams: UI/UX designers
-                            often work closely with other teams, including product management, engineering, and
-                            marketing, to ensure that the user interface is aligned with business and technical
-                            requirements. You will need to be able to effectively communicate your design ideas and
-                            gather feedback from other team members.</p>
-                        <ul>
-                            <li>Conducting user research and testing to understand user needs and behaviors.</li>
-                            <li>Designing wireframes, prototypes, and high-fidelity mockups.</li>
-                            <li>Developing and maintaining design systems and style guides.</li>
-                            <li>Collaborating with cross-functional teams, including product management, engineering,
-                                and marketing.</li>
-                            <li>Staying up-to-date with the latest design trends and technologies.</li>
-                            <li>Gathering and analyzing user requirements to inform the design of new software or web
-                                applications.</li>
-                        </ul>
-                        <h6>Educational Requirements:</h6>
-                        <ul>
-                            <li>Bachelor degree to complete any reputational university.</li>
-                            <li>Bachelor degree to complete any reputational university.</li>
-                        </ul>
-                        <h6>Experiences:</h6>
-                        <ul>
-                            <li>2-3 Years in this field.</li>
-                        </ul>
-                        <p><span>Main Duties:</span> Some specific tasks that a UI/UX designer might be responsible for
-                            include:</p>
-                        <ul>
-                            <li>Gathering and analyzing user requirements to inform the design of new software or web
-                                applications.</li>
-                            <li>Designing the layout, visual design, and interactivity of the user interface.</li>
-                            <li>Developing and maintaining design systems and style guides to ensure consistency in
-                                theux</li>
-                            <li>Collaborating with cross-functional teams, including product management, engineering,
-                                and marketing, to ensure that the user interface is aligned with business and technical
-                                requirements</li>
-                        </ul>
-                        <p><span>Extra Benefits:</span> Some specific tasks that a UI/UX designer might be responsible
-                            for include:</p>
-                        <ul>
-                            <li>Any health care.</li>
-                            <li>Yearly performance bonus.</li>
-                            <li>Flexibility & remote working.</li>
-                            <li>Two days off weekly.</li>
-                        </ul>
+                        {!! $job->description !!}
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="job-details-sidebar mb-120">
                         <div class="save-apply-btn d-flex justify-content-end mb-50">
                             <ul>
-                                <li><a class="save-btn" href="#">Save Job <span><i
-                                                class="bi bi-bookmark-fill"></i></span></a></li>
-                                <li><a class="primary-btn-2 lg-btn" href="#">Apply Position</a></li>
+                                <li>
+                                    <a class="save-btn" href="#">
+                                        Save Job
+                                        <span>
+                                            <i class="bi bi-bookmark-fill"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="primary-btn-2 lg-btn" href="#">
+                                        Apply Position
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                         <div class="job-summary-area mb-50">
@@ -126,27 +93,40 @@
                             </div>
                             <ul>
                                 <li>
-                                    <p><span class="title">Job Posted:</span> 02 February, 2023.</p>
+                                    <p>
+                                        <span class="title">Job Posted:</span>
+                                        {{ $job->created_at->format('d F, Y') }}
+                                    </p>
                                 </li>
                                 <li>
-                                    <p><span class="title">Expiration:</span> 03 March, 2023.</p>
+                                    <p>
+                                        <span class="title">Expiration:</span>
+                                        {{ Carbon\Carbon::parse($job->deadline)->format('d F, Y') }}
+                                    </p>
                                 </li>
                                 <li>
-                                    <p><span class="title">Vacancy:</span> 07 Person.</p>
+                                    <p>
+                                        <span class="title">Vacancy:</span>
+                                        {{ $job->vacancy }} Person.
+                                    </p>
                                 </li>
                                 <li>
-                                    <p><span class="title">Experiences:</span> 2-3 Years.</p>
+                                    <p>
+                                        <span class="title">Experiences:</span>
+                                        {{ $job->experience }} Years.
+                                    </p>
                                 </li>
                                 <li>
-                                    <p><span class="title">Education:</span> Bachelor Degree.</p>
-                                </li>
-                                <li>
-                                    <p><span class="title">Gender:</span> Both.</p>
+                                    <p>
+                                        <span class="title">Gender:</span>
+                                        {{ $job->gender }}.
+                                    </p>
                                 </li>
                             </ul>
                         </div>
                         <div class="view-job-btn mb-30">
-                            <a href="{{ route('jobs.index') }}"><img src="{{asset('frontend')}}/images/icon/company-2.svg" alt>View All Jobs In
+                            <a href="{{ route('jobs.index') }}"><img
+                                    src="{{ asset('frontend') }}/images/icon/company-2.svg" alt>View All Jobs In
                                 This Company</a>
                         </div>
                         <div class="job-share-area mb-50">
@@ -161,7 +141,7 @@
                         </div>
                         <div class="email-area mb-50">
                             <div class="title">
-                                <h6><img src="{{asset('frontend')}}/images/icon/email-2.svg" alt>Email Now</h6>
+                                <h6><img src="{{ asset('frontend') }}/images/icon/email-2.svg" alt>Email Now</h6>
                             </div>
                             <p>Send your resume at <a
                                     href="https://demo.egenslab.com/cdn-cgi/l/email-protection#cda4a3aba28da8b5aca0bda1a8e3aea2a0"><span
@@ -188,65 +168,70 @@
                         <div class="swiper company-gallery-slider" data-cursor="Drag">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <a href="{{asset('frontend')}}/images/bg/company-gallery-big-01.png" data-fancybox="gallery"
-                                        class="gallery2-img">
+                                    <a href="{{ asset('frontend') }}/images/bg/company-gallery-big-01.png"
+                                        data-fancybox="gallery" class="gallery2-img">
                                         <div class="gallery-wrap">
-                                            <img class="img-fluid" src="{{asset('frontend')}}/images/bg/company-gallery-sm-01.png" alt>
+                                            <img class="img-fluid"
+                                                src="{{ asset('frontend') }}/images/bg/company-gallery-sm-01.png" alt>
                                             <div class="overlay d-flex align-items-center justify-content-center">
                                                 <div class="items-content text-center">
-                                                    <img src="{{asset('frontend')}}/images/icon/eye.svg" alt>
+                                                    <img src="{{ asset('frontend') }}/images/icon/eye.svg" alt>
                                                 </div>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="{{asset('frontend')}}/images/bg/company-gallery-big-02.png" data-fancybox="gallery"
-                                        class="gallery2-img">
+                                    <a href="{{ asset('frontend') }}/images/bg/company-gallery-big-02.png"
+                                        data-fancybox="gallery" class="gallery2-img">
                                         <div class="gallery-wrap">
-                                            <img class="img-fluid" src="{{asset('frontend')}}/images/bg/company-gallery-sm-02.png" alt>
+                                            <img class="img-fluid"
+                                                src="{{ asset('frontend') }}/images/bg/company-gallery-sm-02.png" alt>
                                             <div class="overlay d-flex align-items-center justify-content-center">
                                                 <div class="items-content text-center">
-                                                    <img src="{{asset('frontend')}}/images/icon/eye.svg" alt>
+                                                    <img src="{{ asset('frontend') }}/images/icon/eye.svg" alt>
                                                 </div>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="{{asset('frontend')}}/images/bg/company-gallery-big-03.png" data-fancybox="gallery"
-                                        class="gallery2-img">
+                                    <a href="{{ asset('frontend') }}/images/bg/company-gallery-big-03.png"
+                                        data-fancybox="gallery" class="gallery2-img">
                                         <div class="gallery-wrap">
-                                            <img class="img-fluid" src="{{asset('frontend')}}/images/bg/company-gallery-sm-03.png" alt>
+                                            <img class="img-fluid"
+                                                src="{{ asset('frontend') }}/images/bg/company-gallery-sm-03.png" alt>
                                             <div class="overlay d-flex align-items-center justify-content-center">
                                                 <div class="items-content text-center">
-                                                    <img src="{{asset('frontend')}}/images/icon/eye.svg" alt>
+                                                    <img src="{{ asset('frontend') }}/images/icon/eye.svg" alt>
                                                 </div>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="{{asset('frontend')}}/images/bg/company-gallery-big-04.png" data-fancybox="gallery"
-                                        class="gallery2-img">
+                                    <a href="{{ asset('frontend') }}/images/bg/company-gallery-big-04.png"
+                                        data-fancybox="gallery" class="gallery2-img">
                                         <div class="gallery-wrap">
-                                            <img class="img-fluid" src="{{asset('frontend')}}/images/bg/company-gallery-sm-04.png" alt>
+                                            <img class="img-fluid"
+                                                src="{{ asset('frontend') }}/images/bg/company-gallery-sm-04.png" alt>
                                             <div class="overlay d-flex align-items-center justify-content-center">
                                                 <div class="items-content text-center">
-                                                    <img src="{{asset('frontend')}}/images/icon/eye.svg" alt>
+                                                    <img src="{{ asset('frontend') }}/images/icon/eye.svg" alt>
                                                 </div>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="{{asset('frontend')}}/images/bg/company-gallery-big-05.png" data-fancybox="gallery"
-                                        class="gallery2-img">
+                                    <a href="{{ asset('frontend') }}/images/bg/company-gallery-big-05.png"
+                                        data-fancybox="gallery" class="gallery2-img">
                                         <div class="gallery-wrap">
-                                            <img class="img-fluid" src="{{asset('frontend')}}/images/bg/company-gallery-sm-05.png" alt>
+                                            <img class="img-fluid"
+                                                src="{{ asset('frontend') }}/images/bg/company-gallery-sm-05.png" alt>
                                             <div class="overlay d-flex align-items-center justify-content-center">
                                                 <div class="items-content text-center">
-                                                    <img src="{{asset('frontend')}}/images/icon/eye.svg" alt>
+                                                    <img src="{{ asset('frontend') }}/images/icon/eye.svg" alt>
                                                 </div>
                                             </div>
                                         </div>
@@ -262,10 +247,10 @@
                             <h3>Related Jobs:</h3>
                             <div class="swiper-btn1 d-flex align-items-center">
                                 <div class="left-btn prev-4">
-                                    <img src="{{asset('frontend')}}/images/icon/explore-elliose.svg" alt>
+                                    <img src="{{ asset('frontend') }}/images/icon/explore-elliose.svg" alt>
                                 </div>
                                 <div class="right-btn next-4">
-                                    <img src="{{asset('frontend')}}/images/icon/explore-elliose.svg" alt>
+                                    <img src="{{ asset('frontend') }}/images/icon/explore-elliose.svg" alt>
                                 </div>
                             </div>
                         </div>
@@ -275,11 +260,13 @@
                                     <div class="feature-card">
                                         <div class="company-area">
                                             <div class="logo">
-                                                <img src="{{asset('frontend')}}/images/bg/company-logo/company-02.png" alt>
+                                                <img src="{{ asset('frontend') }}/images/bg/company-logo/company-02.png"
+                                                    alt>
                                             </div>
                                             <div class="company-details">
                                                 <div class="name-location">
-                                                    <h5><a href="{{ route('jobs.show', 1) }}">Assistant Laboratorist</a></h5>
+                                                    <h5><a href="{{ route('jobs.show', 1) }}">Assistant Laboratorist</a>
+                                                    </h5>
                                                     <p>Full Time, Part Time</p>
                                                 </div>
                                                 <div class="bookmark">
@@ -290,17 +277,17 @@
                                         <div class="job-discription">
                                             <ul>
                                                 <li>
-                                                    <img src="{{asset('frontend')}}/images/icon/arrow2.svg" alt>
+                                                    <img src="{{ asset('frontend') }}/images/icon/arrow2.svg" alt>
                                                     <p><span class="title">Salary:</span> $30-$40 / <span
                                                             class="time">Per month</span></p>
                                                 </li>
                                                 <li>
-                                                    <img src="{{asset('frontend')}}/images/icon/arrow2.svg" alt>
+                                                    <img src="{{ asset('frontend') }}/images/icon/arrow2.svg" alt>
                                                     <p><span class="title">Vacancy:</span> <span> 05 Person
                                                             (Both)</span></p>
                                                 </li>
                                                 <li>
-                                                    <img src="{{asset('frontend')}}/images/icon/arrow2.svg" alt>
+                                                    <img src="{{ asset('frontend') }}/images/icon/arrow2.svg" alt>
                                                     <p><span class="title">Deadline:</span> <span> 02 March, 2023
                                                         </span></p>
                                                 </li>
@@ -309,7 +296,8 @@
                                         <div class="job-type-apply">
                                             <div class="apply-btn">
                                                 <a href="{{ route('jobs.show', 1) }}"><span><img
-                                                            src="{{asset('frontend')}}/images/icon/apply-ellipse.svg" alt></span>Apply
+                                                            src="{{ asset('frontend') }}/images/icon/apply-ellipse.svg"
+                                                            alt></span>Apply
                                                     Now</a>
                                             </div>
                                         </div>
@@ -319,7 +307,8 @@
                                     <div class="feature-card">
                                         <div class="company-area">
                                             <div class="logo">
-                                                <img src="{{asset('frontend')}}/images/bg/company-logo/company-03.png" alt>
+                                                <img src="{{ asset('frontend') }}/images/bg/company-logo/company-03.png"
+                                                    alt>
                                             </div>
                                             <div class="company-details">
                                                 <div class="name-location">
@@ -334,17 +323,17 @@
                                         <div class="job-discription">
                                             <ul>
                                                 <li>
-                                                    <img src="{{asset('frontend')}}/images/icon/arrow2.svg" alt>
+                                                    <img src="{{ asset('frontend') }}/images/icon/arrow2.svg" alt>
                                                     <p><span class="title">Salary:</span> $60-$90 / <span
                                                             class="time">Per month</span></p>
                                                 </li>
                                                 <li>
-                                                    <img src="{{asset('frontend')}}/images/icon/arrow2.svg" alt>
+                                                    <img src="{{ asset('frontend') }}/images/icon/arrow2.svg" alt>
                                                     <p><span class="title">Vacancy:</span> <span> 07 Person
                                                             (Female)</span></p>
                                                 </li>
                                                 <li>
-                                                    <img src="{{asset('frontend')}}/images/icon/arrow2.svg" alt>
+                                                    <img src="{{ asset('frontend') }}/images/icon/arrow2.svg" alt>
                                                     <p><span class="title">Deadline:</span> <span> 03 March, 2023
                                                         </span></p>
                                                 </li>
@@ -353,7 +342,8 @@
                                         <div class="job-type-apply">
                                             <div class="apply-btn">
                                                 <a href="{{ route('jobs.show', 1) }}"><span><img
-                                                            src="{{asset('frontend')}}/images/icon/apply-ellipse.svg" alt></span>Apply
+                                                            src="{{ asset('frontend') }}/images/icon/apply-ellipse.svg"
+                                                            alt></span>Apply
                                                     Now</a>
                                             </div>
                                         </div>
@@ -363,7 +353,8 @@
                                     <div class="feature-card">
                                         <div class="company-area">
                                             <div class="logo">
-                                                <img src="{{asset('frontend')}}/images/bg/company-logo/company-06.png" alt>
+                                                <img src="{{ asset('frontend') }}/images/bg/company-logo/company-06.png"
+                                                    alt>
                                             </div>
                                             <div class="company-details">
                                                 <div class="name-location">
@@ -378,17 +369,17 @@
                                         <div class="job-discription">
                                             <ul>
                                                 <li>
-                                                    <img src="{{asset('frontend')}}/images/icon/arrow2.svg" alt>
+                                                    <img src="{{ asset('frontend') }}/images/icon/arrow2.svg" alt>
                                                     <p><span class="title">Salary:</span> $60-$76 / <span
                                                             class="time">Per month</span></p>
                                                 </li>
                                                 <li>
-                                                    <img src="{{asset('frontend')}}/images/icon/arrow2.svg" alt>
+                                                    <img src="{{ asset('frontend') }}/images/icon/arrow2.svg" alt>
                                                     <p><span class="title">Vacancy:</span> <span> 01 Person
                                                             (Both)</span></p>
                                                 </li>
                                                 <li>
-                                                    <img src="{{asset('frontend')}}/images/icon/arrow2.svg" alt>
+                                                    <img src="{{ asset('frontend') }}/images/icon/arrow2.svg" alt>
                                                     <p><span class="title">Deadline:</span> <span> 05 March, 2023</span>
                                                     </p>
                                                 </li>
@@ -397,7 +388,8 @@
                                         <div class="job-type-apply">
                                             <div class="apply-btn">
                                                 <a href="{{ route('jobs.show', 1) }}"><span><img
-                                                            src="{{asset('frontend')}}/images/icon/apply-ellipse.svg" alt></span>Apply
+                                                            src="{{ asset('frontend') }}/images/icon/apply-ellipse.svg"
+                                                            alt></span>Apply
                                                     Now</a>
                                             </div>
                                         </div>
