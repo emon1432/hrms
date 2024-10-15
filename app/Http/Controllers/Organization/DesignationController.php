@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Organization;
 
 use App\Http\Controllers\Controller;
 use App\Models\Designation;
-use App\Models\JobCategory;
 use Illuminate\Http\Request;
 
 class DesignationController extends Controller
