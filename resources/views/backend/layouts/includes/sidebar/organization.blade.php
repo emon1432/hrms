@@ -14,29 +14,30 @@
             </a>
         </li>
         <li>
-            <a class="{{ Request::is('designations*') ? 'active' : '' }}"
-                href="{{ route('designations.index') }}">
+            <a class="{{ Request::is('designations*') ? 'active' : '' }}" href="{{ route('designations.index') }}">
                 Designation
             </a>
         </li>
     </ul>
 </li>
-
+<li class="menu-title">
+    <span>Job Applications</span>
+</li>
 <li class="submenu">
     <a href="javascript:void(0);">
         <i class="la la-briefcase"></i>
-        <span>Jobs</span>
+        <span>Job Management</span>
         <span class="menu-arrow"></span>
     </a>
     <ul style="display: none;">
         <li>
             <a class="{{ Request::is('job-management*') ? 'active' : '' }}" href="{{ route('job-management.index') }}">
-                Job Management
+                Jobs
             </a>
         </li>
         <li>
             <a class="{{ Request::is('category*') ? 'active' : '' }}" href="{{ route('category.index') }}">
-                Job Category
+                Category
             </a>
         </li>
     </ul>

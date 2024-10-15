@@ -58,17 +58,18 @@
                                 <td>
                                     <h2 class="table-avatar">
                                         <a href="" class="avatar">
-                                            <img alt="{{ $employee->first_name }}" src="{{ imageShow($employee->image) }}">
+                                            <img src="{{ imageShow($employee->image) }}" height="40" width="40"
+                                                alt="{{ $employee->first_name }}">
                                         </a>
                                         <a href="">
                                             {{ $employee->first_name }} {{ $employee->last_name }}
                                         </a>
                                     </h2>
                                 </td>
-                                <td>{{ $employee->designation }}</td>
+                                <td>{{ $employee->designation->name }}</td>
                                 <td>{{ $employee->salary }}</td>
                                 <td>{{ $employee->phone }}</td>
-                                <td>{{ $employee->join_date }}</td>
+                                <td>{{ Carbon\Carbon::parse($employee->join_date)->format('d M Y') }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('employees.edit', $employee->id) }}" class="btn btn-primary">
                                         <i class="fa fa-pencil"></i>

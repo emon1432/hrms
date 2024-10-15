@@ -34,13 +34,13 @@
                                     required="" name="phone">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="designation">Designation <span class="text-danger">*</span></label>
+                                <label for="designation_id">Designation <span class="text-danger">*</span></label>
                                 <div class="form-group form-focus select-focus">
-                                    <select class="select floating" name="designation">
+                                    <select class="select floating" name="designation_id" required="">
                                         <option value="" disabled selected>Select Designation</option>
                                         @foreach ($designations as $designation)
                                             <option value="{{ $designation->id }}">
-                                                {{ $designation->designation_name }}
+                                                {{ $designation->name }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -61,7 +61,7 @@
                                 <input type="email" class="form-control" id="email" placeholder="Enter your email"
                                     required="" name="email">
                             </div>
-                            
+
                             <div class="col-md-6 mb-3">
                                 <label for="password">Password <span class="text-danger">*</span></label>
                                 <input type="password" class="form-control" id="password" placeholder="Enter your password"

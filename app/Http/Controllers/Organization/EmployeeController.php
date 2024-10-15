@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Organization;
 
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
-use App\Models\EmployeeDesignation;
+use App\Models\Designation;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -18,7 +18,7 @@ class EmployeeController extends Controller
 
     public function create()
     {
-        $designations = EmployeeDesignation::where('status', 1)->get();
+        $designations = Designation::orderBy('name')->get();
         return view('backend.pages.organization.employees.create', compact('designations'));
     }
 
@@ -28,10 +28,10 @@ class EmployeeController extends Controller
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email|unique:employees,email',
-            'phone' => 'required|string',
-            'join_date' => 'required',
-            'salary' => 'required',
-            'designation' => 'required',
+            'phone' => 'required|string|unique:employees,phone',
+            'designation_id' => 'required|exists:designations,id',
+            'join_date' => 'nullable|date',
+            'salary' => 'nullable|string',
             'password' => 'required|string|min:8',
             'profile' => 'nullable|image|max:2048',
         ]);
@@ -44,8 +44,7 @@ class EmployeeController extends Controller
             'role' => 'employee',
             'organization_id' => auth()->user()->organization->id,
             'password' => bcrypt($request->password),
-            'created_by' => auth()->user()->organization->id,
-            'image' => imageUploadManager($request->profile, slugify($request->first_name . ' ' . $request->last_name), 'users', 200, 200),
+            'image' => imageUploadManager($request->profile, slugify($request->first_name . ' ' . $request->last_name), 'employees', 200, 200),
         ]);
         $user = User::create($request->all());
         $user->employee()->create($request->all());
@@ -61,19 +60,21 @@ class EmployeeController extends Controller
 
     public function edit(string $id)
     {
-        $employee = Employee::findOrFail($id);
-        return view('backend.pages.organization.employees.edit', compact('employee'));
+        $employee = auth()->user()->organization->employees()->findOrFail($id);
+        $designations = Designation::orderBy('name')->get();
+        return view('backend.pages.organization.employees.edit', compact('employee', 'designations'));
     }
 
-    public function update(Request $request, string $id)
+    public function update(Request $request, Employee $employee)
     {
-        $employee = Employee::findOrFail($id);
         $validate = validator($request->all(), [
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . $employee->user_id . '|unique:employees,email,' . $employee->id,
-            'phone' => 'required|string',
-            'password' => 'nullable|string|min:8',
+            'email' => 'required|email|unique:users,email,' . $employee->user->id . '|unique:employees,email,' . $employee->id,
+            'phone' => 'required|string|unique:employees,phone,' . $employee->id,
+            'designation_id' => 'required|exists:designations,id',
+            'join_date' => 'nullable|date',
+            'salary' => 'nullable|string',
             'profile' => 'nullable|image|max:2048',
         ]);
 
@@ -84,8 +85,21 @@ class EmployeeController extends Controller
         $request->merge([
             'role' => 'employee',
             'organization_id' => auth()->user()->organization->id,
-            'image' => imageUploadManager($request->profile, slugify($request->first_name . ' ' . $request->last_name), 'users', 200, 200),
         ]);
+        if ($request->password) {
+            $request->merge([
+                'password' => bcrypt($request->password),
+            ]);
+        } else {
+            $request->merge([
+                'password' => $employee->user->password,
+            ]);
+        }
+        if ($request->profile) {
+            $request->merge([
+                'image' => imageUpdateManager($request->profile, slugify($request->first_name . ' ' . $request->last_name), 'employees', 200, 200, $employee->image),
+            ]);
+        }
         $employee->user->update($request->all());
         $employee->update($request->all());
 
@@ -98,10 +112,10 @@ class EmployeeController extends Controller
 
         $employee = Employee::findOrFail($id);
         imageDeleteManager($employee->image);
+        $employee->user->delete();
         $employee->delete();
 
         notify()->success('Employee deleted successfully!');
         return back();
-
     }
 }

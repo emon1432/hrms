@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('email');
             $table->string('phone');
-            $table->date('join_date');
-            $table->decimal('salary', 10, 2);
+            $table->date('join_date')->nullable();
+            $table->string('salary')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });
