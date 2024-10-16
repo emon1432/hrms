@@ -67,7 +67,7 @@
                                     scope of software companies can vary greatly, from small startups to large
                                     multinational corporations.</p>
                                 <br><br>
-                                <h5>Working Area</h5>
+                                {{-- <h5>Working Area</h5>
                                 <div class="row pt-20">
                                     <div class="col-sm-6 mb-50">
                                         <div class="working-process">
@@ -117,7 +117,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -135,9 +135,9 @@
                                     </ul>
                                 </div>
                                 <a class="primary-btn-2 lg-btn" href="{{ route('jobs.index') }}">Job Available 23</a>
-                                <a class="primary-btn-1 lg-btn"
+                                {{-- <a class="primary-btn-1 lg-btn"
                                     href="https://www.google.com/maps/place/Egens+Lab/@23.8340712,90.3634979,17z/data=!3m1!4b1!4m5!3m4!1s0x3755c14c8682a473:0xa6c74743d52adb88!8m2!3d23.8340663!4d90.3656866">Go
-                                    Our Site Map</a>
+                                    Our Site Map</a> --}}
                             </div>
                         </div>
                     </div>

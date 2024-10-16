@@ -23,7 +23,7 @@
     <div class="company-listing-area pt-120 mb-120">
         <div class="container">
             <div class="row g-lg-4 gy-5">
-                <div class="col-lg-4 order-lg-1 order-2">
+                {{-- <div class="col-lg-4 order-lg-1 order-2">
                     <div class="job-sidebar">
                         <div class="job-widget style-1 mb-20">
                             <div class="check-box-item">
@@ -281,8 +281,8 @@
                             <a class="primary-btn-2 lg-btn text-center" href="#">Make A Job Post</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-8 order-lg-2 order-1">
+                </div> --}}
+                <div class="col-lg-12 order-lg-2 order-1">
                     <div class="company-listing-wrap">
                         <div class="row g-4 mb-25">
                             <div class="col-lg-6 d-flex align-items-center">
