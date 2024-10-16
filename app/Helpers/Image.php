@@ -60,3 +60,15 @@ function imageShow($image)
         return asset('uploads/default.png');
     }
 }
+
+function fileUploadManager($file, $slug, $path, $extension)
+{
+    $path = 'uploads/' . $path . '/';
+    $file_name = $path . $slug . time() . uniqid() . '.' . $extension;
+    $path = public_path($path);
+    if (!file_exists($path)) {
+        mkdir($path, 0777, true);
+    }
+    $file->move($path, $file_name);
+    return $file_name;
+}

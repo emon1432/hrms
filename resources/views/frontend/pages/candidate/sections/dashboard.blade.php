@@ -3,79 +3,12 @@
     <div class="dashboard-inner">
         <div class="author-area">
             <div class="author-img">
-                <img src="{{ asset('frontend') }}/images/bg/author1.png" alt>
+                <img src="{{ imageShow(auth()->user()->candidate->image) }}"
+                    alt="{{ auth()->user()->candidate->first_name }}">
             </div>
             <div class="author-content">
                 <span>Hello, I’m</span>
-                <h4>JACOLINE Frankly</h4>
-            </div>
-        </div>
-        <div class="counter-area">
-            <div class="row g-lg-4 g-md-5 gy-5 justify-content-center">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="counter-single">
-                        <div class="counter-icon">
-                            <img src="{{ asset('frontend') }}/images/icon/tt-applied.svg" alt="image">
-                        </div>
-                        <div class="coundown">
-                            <p>Total Applied</p>
-                            <div class="d-flex align-items-center">
-                                <h3 class="odometer">
-                                    250
-                                </h3>
-                                <span>+</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="counter-single two">
-                        <div class="counter-icon">
-                            <img src="{{ asset('frontend') }}/images/icon/save-job.svg" alt="image">
-                        </div>
-                        <div class="coundown">
-                            <p>Saved Jobs</p>
-                            <div class="d-flex align-items-center">
-                                <h3 class="odometer">
-                                    150
-                                </h3>
-                                <span>+</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="counter-single three">
-                        <div class="counter-icon">
-                            <img src="{{ asset('frontend') }}/images/icon/massage.svg" alt="image">
-                        </div>
-                        <div class="coundown">
-                            <p>Message</p>
-                            <div class="d-flex align-items-center">
-                                <h3 class="odometer">
-                                    120
-                                </h3>
-                                <span>+</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="counter-single four">
-                        <div class="counter-icon">
-                            <img src="{{ asset('frontend') }}/images/icon/cv-review.svg" alt="image">
-                        </div>
-                        <div class="coundown">
-                            <p>Review CV</p>
-                            <div class="d-flex align-items-center">
-                                <h3 class="odometer">
-                                    500
-                                </h3>
-                                <span>+</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h4>{{ auth()->user()->candidate->first_name }} {{ auth()->user()->candidate->last_name }}</h4>
             </div>
         </div>
         <div class="table-wrapper">
@@ -227,8 +160,8 @@
                                                 USA</li>
                                             <li>
                                                 <img src="{{ asset('frontend') }}/images/icon/arrow2.svg" alt>
-                                                <p><span class="title">Salary:</span> $40K-$60K / <span
-                                                        class="time">Per Month</span></p>
+                                                <p><span class="title">Salary:</span> $40K-$60K / <span class="time">Per
+                                                        Month</span></p>
                                             </li>
                                         </ul>
                                     </div>
