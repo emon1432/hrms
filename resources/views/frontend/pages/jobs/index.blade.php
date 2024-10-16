@@ -414,7 +414,7 @@
                                                                 </a>
                                                             </h5>
                                                             <p>
-                                                                <a href="{{ route('companies.show', 1) }}">Medico.co Ltd</a>
+                                                                <a href="{{ route('companies.show', 1) }}">{{ $job->organization->name }}</a>
                                                             </p>
                                                         </div>
                                                     </div>

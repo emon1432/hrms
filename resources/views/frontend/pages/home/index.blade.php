@@ -8,5 +8,5 @@
     @include('frontend.pages.home.sections.review')
     @include('frontend.pages.home.sections.trusted-company')
     @include('frontend.pages.home.sections.top-recruiters')
-    @include('frontend.pages.home.sections.blog')
+    {{-- @include('frontend.pages.home.sections.blog') --}}
 @endsection

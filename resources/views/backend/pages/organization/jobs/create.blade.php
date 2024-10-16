@@ -61,12 +61,12 @@
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="salary_from">Salary From</label>
+                                <label for="salary_from">Salary From <span class="text-danger">($ Per month)</span></label>
                                 <input type="number" class="form-control" id="salary_from" placeholder="Enter salary from"
                                     name="salary_from" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="salary_to">Salary To</label>
+                                <label for="salary_to">Salary To <span class="text-danger">($ Per month)</span></label>
                                 <input type="number" class="form-control" id="salary_to" placeholder="Enter salary to"
                                     name="salary_to" required>
                             </div>

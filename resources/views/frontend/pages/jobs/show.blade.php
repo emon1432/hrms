@@ -59,8 +59,8 @@
                                     </li>
                                     <li>
                                         <img src="{{ asset('frontend') }}/images/icon/salary-2.svg" alt>
-                                        <p><span class="title">Salary:</span> ${{ $job->salary_from }}k -
-                                            ${{ $job->salary_to }}k/Per Month</p>
+                                        <p><span class="title">Salary:</span> ${{ $job->salary_from }} -
+                                            ${{ $job->salary_to }}/Per Month</p>
                                     </li>
                                 </ul>
                             </div>
@@ -129,7 +129,7 @@
                                     src="{{ asset('frontend') }}/images/icon/company-2.svg" alt>View All Jobs In
                                 This Company</a>
                         </div>
-                        <div class="job-share-area mb-50">
+                        {{-- <div class="job-share-area mb-50">
                             <h6>Job Link Share:</h6>
                             <ul>
                                 <li><a href="#"><i class="bx bx-link"></i></a></li>
@@ -155,12 +155,12 @@
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3649.564763018799!2d90.36349791490355!3d23.834071191491947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c14c8682a473%3A0xa6c74743d52adb88!2sEgens%20Lab!5e0!3m2!1sen!2sbd!4v1674212581590!5m2!1sen!2sbd"
                                 style="border:0;" allowfullscreen loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12 mb-120">
+                {{-- <div class="col-lg-12 mb-120">
                     <div class="company-gallery">
                         <div class="title">
                             <h5>Company Gallery View</h5>
@@ -240,8 +240,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-12">
+                </div> --}}
+                <div class="col-lg-12 mt-120">
                     <div class="related-jobs">
                         <div class="section-title mb-40">
                             <h3>Related Jobs:</h3>

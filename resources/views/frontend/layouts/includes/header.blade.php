@@ -7,7 +7,7 @@
         <div class="top-bar">
             <p>Welcome Our Job Portal! <a href="bookmark.html">Save Jobs</a></p>
             <div class="top-bar-right">
-                <div class="language-select">
+                {{-- <div class="language-select">
                     <img src="{{ asset('frontend') }}/images/icon/flag-eng.svg" alt="image"><span>Language</span>
                     <ul class="topbar-sublist">
                         <li><img src="{{ asset('frontend') }}/images/icon/flag-germeny.svg"
@@ -17,7 +17,7 @@
                         <li><img src="{{ asset('frontend') }}/images/icon/flag-bangla.svg"
                                 alt="image"><span>Bengali</span></li>
                     </ul>
-                </div>
+                </div> --}}
                 <div class="social-area">
                     <ul>
                         <li><a href="https://www.facebook.com/"><i class="bx bxl-facebook"></i></a></li>
@@ -56,9 +56,9 @@
                     <li class="{{ request()->routeIs('companies.*') ? 'active' : '' }}">
                         <a href="{{ route('companies.index') }}">Company</a>
                     </li>
-                    <li class="{{ request()->routeIs('blogs.*') ? 'active' : '' }}">
+                    {{-- <li class="{{ request()->routeIs('blogs.*') ? 'active' : '' }}">
                         <a href="{{ route('blogs.index') }}">Blog</a>
-                    </li>
+                    </li> --}}
                     <li class="{{ request()->routeIs('contact.*') ? 'active' : '' }}">
                         <a href="{{ route('contact.index') }}">Contact</a>
                     </li>
