@@ -28,7 +28,6 @@ class OrganizationsTableSeeder extends Seeder
                 'type' => 'Software Development',
                 'email' => 'organization@hrms.com',
                 'phone' => '01521437220',
-                'image' => NULL,
                 'address' => NULL,
                 'created_at' => '2024-10-10 08:44:04',
                 'updated_at' => '2024-10-10 08:44:04',

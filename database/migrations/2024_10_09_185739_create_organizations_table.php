@@ -14,13 +14,18 @@ return new class extends Migration
         Schema::create('organizations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            // $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->string('name');
-            $table->string('slug')->unique();
             $table->string('type');
+            $table->string('slug')->unique();
             $table->string('email');
             $table->string('phone');
-            $table->string('image')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('banner')->nullable();
             $table->string('address')->nullable();
+            $table->string('size')->nullable();
+            $table->string('website_link')->nullable();
+            $table->longText('about')->nullable();
             $table->timestamps();
         });
     }

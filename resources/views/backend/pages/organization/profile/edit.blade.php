@@ -14,7 +14,7 @@
                     <h5 class="card-title mb-0">Update Profile</h5>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('organization-profile.update', auth()->user()->id) }}" method="POST"
+                    <form action="{{ route('organization-profile.update', auth()->user()->id ) }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
@@ -26,7 +26,7 @@
                                     value="">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="location">Location <span class="text-danger">*</span></label>
+                                <label for="location">Address <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="location"
                                     placeholder="Enter location" required="" name="location"
                                     value="">
@@ -86,8 +86,8 @@
                                     min="8" name="password">
                             </div>
                             <div class="col-md-12 mb-3">
-                                <label for="description">About Company <span class="text-danger">*</span></label>
-                                <textarea class="form-control description" id="description" name="description" required></textarea>
+                                <label for="about">About Company <span class="text-danger">*</span></label>
+                                <textarea class="form-control about" id="about" name="about" required></textarea>
                             </div>
                         </div>
                         <button class="btn btn-info" type="submit">Update Proflie</button>
@@ -104,7 +104,7 @@
     <script src="{{ asset('backend') }}/plugins/summernote/summernote-lite.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('.description').summernote({
+            $('.about').summernote({
                 height: 300,
             });
         });

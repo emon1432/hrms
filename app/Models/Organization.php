@@ -16,6 +16,12 @@ class Organization extends Model
         'type',
         'email',
         'phone',
+        'logo',
+        'banner',
+        'size',
+        'address',
+        'website_link',
+        'about',
     ];
 
     public function user()

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Organization;
 
 use App\Http\Controllers\Controller;
+use App\Models\Organization;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -45,20 +47,55 @@ class ProfileController extends Controller
     public function edit(string $id)
     {
         $organization = auth()->user()->id;
-        // if ($organization->user_id !== auth()->id()) {
-        //     abort(403);
-        // }
-        // $organization = $organization->id;
-        // return view('backend.pages.organization.profile.edit', compact('organization'));
-        return view('backend.pages.organization.profile.index', compact('organization'));
+        
+        return view('backend.pages.organization.profile.edit', compact('organization'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Organization $organization)
     {
-        //
+        $validate = validator($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $organization->user->id . '|unique:organizations,email,' . $organization->id,
+            'phone' => 'required|string|unique:organizations,phone,' . $organization->id,
+            'type' => 'required|string|unique:organizations,type,',
+            'logo' => 'nullable|image|max:2048',
+            'banner' => 'nullable|image|max:2048',
+        ]);
+
+        if ($validate->fails()) {
+            notify()->error($validate->errors()->first());
+            return back();
+        }
+        $request->merge([
+            'role' => 'organization',
+        ]);
+        if ($request->password) {
+            $request->merge([
+                'password' => bcrypt($request->password),
+            ]);
+        } else {
+            $request->merge([
+                'password' => $organization->user->password,
+            ]);
+        }
+        if ($request->logo) {
+            $request->merge([
+                'image' => imageUpdateManager($request->logo, slugify($request->name), 'organizations', 200, 200, $organization->logo),
+            ]);
+        }
+        if ($request->banner) {
+            $request->merge([
+                'image' => imageUpdateManager($request->banner, slugify($request->name), 'organizations', 200, 200, $organization->banner),
+            ]);
+        }
+        $organization->user->update($request->all());
+        $organization->update($request->all());
+
+        notify()->success('Profile updated successfully!');
+        return redirect()->back();
     }
 
     /**
