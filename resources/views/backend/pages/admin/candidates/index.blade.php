@@ -1,9 +1,9 @@
 @extends('backend.layouts.master')
 @section('action-button')
     <div class="col-auto float-right ml-auto">
-        {{-- <a href="{{ route('organizations.create') }}" class="btn add-btn">
+        {{-- <a href="{{ route('candidates.create') }}" class="btn add-btn">
             <i class="fa fa-plus"></i>
-            Add Organization
+            Add Candidate
         </a> --}}
     </div>
 @endsection
@@ -16,7 +16,6 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th>
-                            <th>Company Type</th>
                             <th>Phone</th>
                             <th>Address</th>
                             <th>Status</th>
@@ -24,23 +23,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($organizations as $key=>$organization)
+                        @forelse ($candidates as $key=>$candidate)
                             <tr>
                                 <td>{{ $key + 1 }}</td>
                                 <td>
                                     <h2 class="table-avatar">
                                         <a href="" class="avatar">
-                                            <img src="{{ imageShow($organization->image) }}" height="40" width="40"
-                                                alt="{{ $organization->name }}">
+                                            <img src="{{ imageShow($candidate->image) }}" height="40" width="40"
+                                                alt="{{ $candidate->name }}">
                                         </a>
                                         <a href="">
-                                            {{ $organization->name }}
+                                            {{ $candidate->first_name }} {{ $candidate->last_name }}
                                         </a>
                                     </h2>
                                 </td>
-                                <td>{{ $organization->type }}</td>
-                                <td>{{ $organization->phone }}</td>
-                                <td>{{ $organization->address }}</td>
+                                <td>{{ $candidate->phone }}</td>
+                                <td>{{ $candidate->address }}</td>
                                 <td></td>
                                 <td class="text-right">
                                     <div class="dropdown dropdown-action">
