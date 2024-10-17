@@ -3,7 +3,7 @@
 </li>
 <li class="submenu">
     <a href="javascript:void(0);">
-        <i class="la la-user"></i>
+        <i class="la la-users"></i>
         <span> Employees</span>
         <span class="menu-arrow"></span>
     </a>
@@ -38,6 +38,23 @@
         <li>
             <a class="{{ Request::is('category*') ? 'active' : '' }}" href="{{ route('category.index') }}">
                 Category
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="menu-title">
+    <span>Settings</span>
+</li>
+<li class="submenu">
+    <a href="javascript:void(0);">
+        <i class="la la-cog"></i>
+        <span>Settings</span>
+        <span class="menu-arrow"></span>
+    </a>
+    <ul style="display: none;">
+        <li>
+            <a class="{{ Request::is('organization-profile*') ? 'active' : '' }}" href="{{ route('organization-profile.edit', auth()->user()->id) }}">
+                Profile
             </a>
         </li>
     </ul>
