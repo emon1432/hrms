@@ -14,22 +14,20 @@
                     <h5 class="card-title mb-0">Update Profile</h5>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('organization-profile.update', auth()->user()->id ) }}" method="POST"
+                    <form action="{{ route('organization-profile.update', $organization->id) }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
                                 <label for="name">Company Name <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="name"
-                                    placeholder="Enter name" required="" name="name"
-                                    value="">
+                                <input type="text" class="form-control" id="name" placeholder="Enter name"
+                                    required="" name="name" value="{{ $organization->name }}">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="location">Address <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="location"
-                                    placeholder="Enter location" required="" name="location"
-                                    value="">
+                                <input type="text" class="form-control" id="location" placeholder="Enter location"
+                                    required="" name="location" value="{{ $organization->address }}">
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="profile">Company Logo <span class="text-danger">*</span></label>
@@ -38,8 +36,8 @@
                             </div>
                             <div class="col-md-2 mb-3">
                                 <label for="profile">Preview</label>
-                                <img src="" id="profile_preview" class="img-thumbnail"
-                                    height="100" width="100" alt="logo">
+                                <img src="{{ imageShow($organization->logo) }}" id="profile_preview" class="img-thumbnail"
+                                    height="100" width="100" alt="{{ $organization->name }}">
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="profile">Banner Image <span class="text-danger">*</span></label>
@@ -48,46 +46,45 @@
                             </div>
                             <div class="col-md-2 mb-3">
                                 <label for="profile">Preview</label>
-                                <img src="" id="profile_preview" class="img-thumbnail"
-                                    height="100" width="100" alt="banner">
+                                <img src="{{ imageShow($organization->banner) }}" id="profile_preview" class="img-thumbnail"
+                                    height="100" width="100" alt="{{ $organization->name }}">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="phone">Phone </label>
                                 <input type="number" class="form-control" id="phone" placeholder="Enter your phone"
-                                    required="" name="phone" value="">
+                                    required="" name="phone" value="{{ $organization->phone }}">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="email">Email <span class="text-danger">*</span></label>
                                 <input type="email" class="form-control" id="email" placeholder="Enter your email"
-                                    required="" name="email" value="">
+                                    required="" name="email" value="{{ $organization->email }}">
                             </div>
                             <div class="col-md-6 mb-3">
+
                                 <label for="type">Company Type <span class="text-danger">*</span></label>
-                                <div class="form-group form-focus select-focus">
-                                    <select class="select floating" name="type" required="">
-                                        <option value="" disabled selected>Select Type</option>
-                                        
-                                    </select>
-                                </div>
+                                <input type="text" class="form-control" id="type" placeholder="Enter type"
+                                    required="" name="type" value="{{ $organization->type }}">
+
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="size">Company Size <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="size" placeholder="Enter number"
-                                    required="" name="size" value="">
+                                    required="" name="size" value="{{ $organization->size }}">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="website">Website Link <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="website" placeholder="Enter your website"
-                                    required="" name="website" value="">
+                                <input type="text" class="form-control" id="website"
+                                    placeholder="Enter your website" required="" name="website"
+                                    value="{{ $organization->website_link }}">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" placeholder="Enter your password"
-                                    min="8" name="password">
+                                <input type="password" class="form-control" id="password"
+                                    placeholder="Enter your password" min="8" name="password">
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label for="about">About Company <span class="text-danger">*</span></label>
-                                <textarea class="form-control about" id="about" name="about" required></textarea>
+                                <textarea class="form-control about" id="about" name="about" required>{{ $organization->about }}</textarea>
                             </div>
                         </div>
                         <button class="btn btn-info" type="submit">Update Proflie</button>

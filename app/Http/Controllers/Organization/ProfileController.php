@@ -46,9 +46,14 @@ class ProfileController extends Controller
      */
     public function edit(string $id)
     {
-        $organization = auth()->user()->id;
-        
+        // $organization = auth()->user()->id;
+        $organization = Organization::where('user_id', auth()->user()->id)->first();
+        if (!$organization) {
+            abort(404);
+        }
+
         return view('backend.pages.organization.profile.edit', compact('organization'));
+        
     }
 
     /**
@@ -58,9 +63,9 @@ class ProfileController extends Controller
     {
         $validate = validator($request->all(), [
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . $organization->user->id . '|unique:organizations,email,' . $organization->id,
-            'phone' => 'required|string|unique:organizations,phone,' . $organization->id,
-            'type' => 'required|string|unique:organizations,type,',
+            'email' => 'required|email'. $organization->user_id,
+            'phone' => 'required|string|max:255',
+            'type' => 'required|string|string|max:255',
             'logo' => 'nullable|image|max:2048',
             'banner' => 'nullable|image|max:2048',
         ]);
@@ -93,6 +98,10 @@ class ProfileController extends Controller
         }
         $organization->user->update($request->all());
         $organization->update($request->all());
+        // User::where('id', $organization->user_id)->update([
+        //     'email' => $request->email,
+        // ]);
+
 
         notify()->success('Profile updated successfully!');
         return redirect()->back();
