@@ -25,9 +25,9 @@
                                     required="" name="name" value="{{ $organization->name }}">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="location">Address <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="location" placeholder="Enter location"
-                                    required="" name="location" value="{{ $organization->address }}">
+                                <label for="address">Address <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="address" placeholder="Enter address"
+                                    required="" name="address" value="{{ $organization->address }}">
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="profile">Company Logo <span class="text-danger">*</span></label>
@@ -42,23 +42,23 @@
                             <div class="col-md-4 mb-3">
                                 <label for="profile">Banner Image <span class="text-danger">*</span></label>
                                 <input type="file" class="form-control" id="profile" accept="image/*" name="profile"
-                                    onchange="document.getElementById('profile_preview').src = window.URL.createObjectURL(this.files[0])">
+                                    onchange="document.getElementById('profile_preview1').src = window.URL.createObjectURL(this.files[0])">
                             </div>
                             <div class="col-md-2 mb-3">
                                 <label for="profile">Preview</label>
-                                <img src="{{ imageShow($organization->banner) }}" id="profile_preview" class="img-thumbnail"
+                                <img src="{{ imageShow($organization->banner) }}" id="profile_preview1" class="img-thumbnail"
                                     height="100" width="100" alt="{{ $organization->name }}">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="phone">Phone </label>
+                                <label for="phone">Phone <span class="text-danger">*</span></label>
                                 <input type="number" class="form-control" id="phone" placeholder="Enter your phone"
                                     required="" name="phone" value="{{ $organization->phone }}">
                             </div>
-                            <div class="col-md-6 mb-3">
+                            {{-- <div class="col-md-6 mb-3">
                                 <label for="email">Email <span class="text-danger">*</span></label>
                                 <input type="email" class="form-control" id="email" placeholder="Enter your email"
                                     required="" name="email" value="{{ $organization->email }}">
-                            </div>
+                            </div> --}}
                             <div class="col-md-6 mb-3">
 
                                 <label for="type">Company Type <span class="text-danger">*</span></label>

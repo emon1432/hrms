@@ -63,11 +63,13 @@ class ProfileController extends Controller
     {
         $validate = validator($request->all(), [
             'name' => 'required|string|max:255',
-            'email' => 'required|email'. $organization->user_id,
             'phone' => 'required|string|max:255',
             'type' => 'required|string|string|max:255',
-            'logo' => 'nullable|image|max:2048',
-            'banner' => 'nullable|image|max:2048',
+            'logo' => 'required|image|max:2048',
+            'banner' => 'required|image|max:2048',
+            'email' => 'required|email|unique:users,email,'. $organization->user_id,
+            'address' => 'required|string|max:255',
+            'about' => 'required|string|max:255',
         ]);
 
         if ($validate->fails()) {
@@ -98,10 +100,6 @@ class ProfileController extends Controller
         }
         $organization->user->update($request->all());
         $organization->update($request->all());
-        // User::where('id', $organization->user_id)->update([
-        //     'email' => $request->email,
-        // ]);
-
 
         notify()->success('Profile updated successfully!');
         return redirect()->back();
