@@ -30,7 +30,7 @@ class UsersTableSeeder extends Seeder
                 'two_factor_secret' => NULL,
                 'two_factor_recovery_codes' => NULL,
                 'two_factor_confirmed_at' => NULL,
-                'remember_token' => NULL,
+                'remember_token' => '45dL9TkINJdbUjQCSMs3GzQujkRyWzN8qAGcRHnArpn5OUylgbtFtZrd7mkq',
                 'current_team_id' => NULL,
                 'created_at' => '2024-10-10 08:45:15',
                 'updated_at' => '2024-10-10 08:45:15',
