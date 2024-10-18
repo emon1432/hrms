@@ -40,7 +40,7 @@
     </a>
     <ul style="display: none;">
         <li>
-            <a class="">
+            <a class="{{ Request::is('admin-profile*') ? 'active' : '' }}" href="{{ route('admin-profile.index') }}">
                 Profile
             </a>
         </li>

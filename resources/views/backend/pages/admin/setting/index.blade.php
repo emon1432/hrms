@@ -97,7 +97,7 @@
                                 <textarea class="form-control terms_and_conditions" id="terms_and_conditions" name="terms_and_conditions" required>{{ $setting->terms_and_conditions }}</textarea>
                             </div>
                         </div>
-                        <button class="btn btn-info" type="submit">Update Proflie</button>
+                        <button class="btn btn-info" type="submit">Update Settings</button>
                         <a href="" class="btn btn-danger">Cancel</a>
                         <button class="btn btn-primary" type="reset">Reset</button>
                     </form>
